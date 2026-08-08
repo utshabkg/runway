@@ -56,6 +56,15 @@ export interface Citation {
   /** ISO date the figure was read off that page by a human. */
   asOf: string
   note?: string
+  /**
+   * A placeholder nobody has confirmed against the source yet. The UI renders
+   * these with an unmissable badge, and every one must carry a `note` saying
+   * what to check and where (enforced in tests/data.test.ts).
+   *
+   * Day 10 registrar-proofing is done when this returns nothing:
+   *   grep -rn '"unverified": true' src/data/
+   */
+  unverified?: boolean
 }
 
 // ─────────────────────────────── transcript ───────────────────────────────
