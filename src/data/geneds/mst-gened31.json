@@ -1,0 +1,98 @@
+{
+  "id": "mst-gened31",
+  "label": "Missouri S&T General Education (31 hours)",
+  "totalCredits": 31,
+  "citationId": "mst-gened31",
+  "blocks": [
+    {
+      "id": "gened31-math",
+      "kind": "creditBucket",
+      "label": "Mathematical Science",
+      "minCredits": 3,
+      "priority": 30,
+      "feeSubjectHint": "MATH",
+      "citationId": "mst-gened31",
+      "accepts": [
+        { "kind": "pattern", "subject": "MATH", "minLevel": 1110 },
+        { "kind": "pattern", "subject": "STAT", "minLevel": 1115 }
+      ]
+    },
+    {
+      "id": "gened31-natsci",
+      "kind": "creditBucket",
+      "label": "Natural Sciences (minimum 1 hour of laboratory, from at least two disciplines)",
+      "minCredits": 7,
+      "priority": 30,
+      "feeSubjectHint": "CHEM",
+      "citationId": "mst-gened31",
+      "accepts": [
+        { "kind": "pattern", "subject": "BIO SCI" },
+        { "kind": "pattern", "subject": "CHEM" },
+        { "kind": "pattern", "subject": "PHYSICS" },
+        { "kind": "pattern", "subject": "GEOLOGY" }
+      ]
+    },
+    {
+      "id": "gened31-comm",
+      "kind": "creditBucket",
+      "label": "Communications",
+      "minCredits": 6,
+      "priority": 30,
+      "citationId": "mst-gened31",
+      "accepts": [
+        { "kind": "pattern", "subject": "ENGLISH" },
+        { "kind": "pattern", "subject": "SP&M S" }
+      ]
+    },
+    {
+      "id": "gened31-humfa",
+      "kind": "creditBucket",
+      "label": "Humanities and Fine Arts (from at least two disciplines)",
+      "minCredits": 6,
+      "priority": 30,
+      "citationId": "mst-gened31",
+      "accepts": [
+        { "kind": "pattern", "subject": "ART" },
+        { "kind": "pattern", "subject": "ENGLISH" },
+        { "kind": "pattern", "subject": "HISTORY" },
+        { "kind": "pattern", "subject": "MUSIC" },
+        { "kind": "pattern", "subject": "PHILOS" },
+        { "kind": "pattern", "subject": "THEATRE" }
+      ]
+    },
+    {
+      "id": "gened31-behsoc",
+      "kind": "creditBucket",
+      "label": "Behavioral and Social Sciences (from at least two disciplines)",
+      "minCredits": 6,
+      "priority": 30,
+      "citationId": "mst-gened31",
+      "accepts": [
+        { "kind": "pattern", "subject": "ECON" },
+        { "kind": "pattern", "subject": "POL SCI" },
+        { "kind": "pattern", "subject": "PSYCH" },
+        { "kind": "pattern", "subject": "SOC" }
+      ]
+    },
+    {
+      "id": "gened31-hass-additional",
+      "kind": "creditBucket",
+      "label": "Additional Humanities, Arts or Social Sciences",
+      "minCredits": 3,
+      "priority": 30,
+      "citationId": "mst-gened31",
+      "accepts": [
+        { "kind": "pattern", "subject": "ART" },
+        { "kind": "pattern", "subject": "ECON" },
+        { "kind": "pattern", "subject": "ENGLISH" },
+        { "kind": "pattern", "subject": "HISTORY" },
+        { "kind": "pattern", "subject": "MUSIC" },
+        { "kind": "pattern", "subject": "PHILOS" },
+        { "kind": "pattern", "subject": "POL SCI" },
+        { "kind": "pattern", "subject": "PSYCH" },
+        { "kind": "pattern", "subject": "SOC" },
+        { "kind": "pattern", "subject": "THEATRE" }
+      ]
+    }
+  ]
+}

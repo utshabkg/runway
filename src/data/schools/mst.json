@@ -1,0 +1,190 @@
+{
+  "id": "mst",
+  "name": "Missouri University of Science and Technology",
+  "ipedsId": "178411",
+  "asOf": "2026-08-08",
+
+  "tuition": {
+    "mode": "plateau",
+    "perCreditInState": 49947,
+    "perCreditOutOfState": 110827,
+    "plateau": {
+      "minCredits": 12,
+      "maxCredits": 18,
+      "flatInState": 749200,
+      "flatOutOfState": 1662400
+    },
+    "citationId": "mst-tuition-derived"
+  },
+
+  "fees": {
+    "perCreditBySubject": {
+      "AERO ENG": 7420,
+      "CHEM ENG": 7420,
+      "CIV ENG": 7420,
+      "COMP ENG": 7420,
+      "ELEC ENG": 7420,
+      "ENG MGT": 7420,
+      "MECH ENG": 7420,
+      "NUC ENG": 7420,
+      "BIO SCI": 7220,
+      "CHEM": 7220,
+      "COMP SCI": 7090,
+      "GEOLOGY": 7090,
+      "PHYSICS": 3540,
+      "BUS": 3610,
+      "IS&T": 3610,
+      "MIS": 3610
+    },
+    "crossListedRule": "higher",
+    "flatPerTerm": [
+      { "label": "Activity and facility fee (full-time cap)", "amount": 34550 },
+      { "label": "Health service fee", "amount": 9200 }
+    ],
+    "citationId": "mst-fees-structure"
+  },
+
+  "sap": {
+    "maxTimeframePct": 1.5,
+    "denominator": "attempted",
+    "pacePct": 0.75,
+    "gpaTiers": [
+      { "minAttempted": 0, "requiredGpa": 1.67 },
+      { "minAttempted": 60, "requiredGpa": 2.0 }
+    ],
+    "appealAvailable": true,
+    "appealWindowWeeks": 4,
+    "academicPlanTerms": 3,
+    "majorChangePolicy": "unspecified",
+    "citationId": "mst-sap"
+  },
+
+  "pell": {
+    "lifetimeEligibilityPct": 600,
+    "appealable": false,
+    "citationId": "fsa-pell-leu"
+  },
+
+  "institutionalAid": [
+    {
+      "id": "mst-merit",
+      "label": "Missouri S&T merit scholarship",
+      "maxSemesters": 8,
+      "countsTerms": ["FS", "SP"],
+      "requiresFullTime": true,
+      "minCreditsForFullTime": 12,
+      "frozenDuringCoop": true,
+      "majorRestricted": false,
+      "citationId": "mst-scholarship-renewal"
+    }
+  ],
+
+  "stateAid": [
+    {
+      "id": "access-missouri",
+      "label": "Access Missouri",
+      "maxSemesters": 10,
+      "maxCompletedCredits": 150,
+      "citationId": "access-missouri"
+    },
+    {
+      "id": "bright-flight",
+      "label": "Missouri Bright Flight",
+      "maxSemesters": 10,
+      "citationId": "bright-flight"
+    }
+  ],
+
+  "gradRates": { "fourYear": 28.97, "sixYear": 64.37, "citationId": "scorecard-178411" },
+
+  "citations": {
+    "mst-tuition-derived": {
+      "id": "mst-tuition-derived",
+      "label": "Missouri S&T tuition and required fees (IPEDS 2024-25)",
+      "url": "https://nces.ed.gov/collegenavigator/?id=178411",
+      "asOf": "2026-08-08",
+      "unverified": true,
+      "note": "PLACEHOLDER. These per-credit and plateau figures are DERIVED by dividing the verified IPEDS 2024-25 annual tuition-and-required-fees total ($14,984 in-state, $33,248 out-of-state) across 30 credit hours; they are NOT the rates S&T publishes. Replace with the real numbers from https://sfs.mst.edu/tuitioncosts/tuitionrates/ — that page is JavaScript-driven and the linked fee-schedule PDFs 404, so it must be opened in a browser. Run CS, MechE, Psychology and Business at 12, 15 and 18 credits, in-state and out, and screenshot each result: the page describes rates as varying by 'study area', so this may need tuition.programRateOverrides instead of a single rate."
+    },
+    "mst-fees-structure": {
+      "id": "mst-fees-structure",
+      "label": "Missouri S&T supplemental course fees by subject",
+      "url": "https://enrollment.mst.edu/media/enrollmentmanagement/enrollment/documents/Cost_of_Education.pdf",
+      "asOf": "2026-08-08",
+      "unverified": true,
+      "note": "STRUCTURE VERIFIED, AMOUNTS STALE. The mechanic is real and is the reason the same fifteen credits cost different amounts in different majors: S&T charges supplemental fees by course subject, and co-listed courses are charged the higher of the applicable fees. The amounts here are from the 2012-13 edition of this PDF and must not be demoed. Replace from the current fee schedule."
+    },
+    "mst-sap": {
+      "id": "mst-sap",
+      "label": "Missouri S&T Student Financial Services — Satisfactory Academic Progress",
+      "url": "https://sfs.mst.edu/policiesprocedures/",
+      "asOf": "2026-08-08",
+      "note": "Pace of 75% of attempted coursework is stricter than the ~67% most institutions use. Maximum timeframe is 150% of the semester hours required for the degree; S&T's own worked example is a 120-hour degree giving a 180-hour ceiling. Appeals are evaluated within four weeks and an academic plan runs three semesters. The policy does NOT state how credits from an abandoned major are counted, which is why majorChangePolicy is 'unspecified'."
+    },
+    "mst-scholarship-renewal": {
+      "id": "mst-scholarship-renewal",
+      "label": "Missouri S&T scholarship renewal criteria",
+      "url": "https://sfs.mst.edu/financialaid/managingyouraid/maintainingeligibility/scholarshiprenewalcriteria/",
+      "asOf": "2026-08-08",
+      "note": "Eight semesters, full-time (minimum 12 credit hours) each fall and spring; not available in summer. Two S&T sources disagree on whether the eight-semester term applies to awards made after fall 2023 or fall 2024 — confirm before quoting the start date."
+    },
+    "mst-coop-aid": {
+      "id": "mst-coop-aid",
+      "label": "Missouri S&T Student Financial Assistance — co-ops and internships",
+      "url": "https://sfa.mst.edu/financial-aid/co-ops-internships/",
+      "asOf": "2026-08-08",
+      "note": "Aid is typically not issued during a co-op term because the student is not taking coursework, and most scholarships are frozen rather than consumed. This is the basis for frozenDuringCoop and it is good news students generally do not know they have."
+    },
+    "fsa-pell-leu": {
+      "id": "fsa-pell-leu",
+      "label": "FSA Handbook 2025-26, Vol. 7 Ch. 8 — Pell Lifetime Eligibility Used",
+      "url": "https://fsapartners.ed.gov/knowledge-center/fsa-handbook/2025-2026/vol7/ch8-pell-grant-lifetime-eligibility-used-leu",
+      "asOf": "2026-08-08",
+      "note": "Six Scheduled Awards, 600% LEU, roughly twelve full-time semesters. A student is ineligible for further Pell once they reach or exceed 600%, and there is no appeal. Students check their LEU at StudentAid.gov under My Aid."
+    },
+    "cfr-668-34": {
+      "id": "cfr-668-34",
+      "label": "34 CFR 668.34 — Satisfactory academic progress",
+      "url": "https://www.law.cornell.edu/cfr/text/34/668.34",
+      "asOf": "2026-08-08",
+      "note": "Maximum timeframe for an undergraduate credit-hour program is no longer than 150% of the published length. Pace is cumulative hours successfully completed divided by cumulative hours ATTEMPTED. The regulation is silent on how credits from an abandoned major count. This is the only live federal 150% rule that applies here; a separate federal 150% loan-subsidy limit was repealed in 2021 and is not modelled — see the README for why the two are routinely conflated."
+    },
+    "access-missouri": {
+      "id": "access-missouri",
+      "label": "Missouri DHEWD — Access Missouri Financial Assistance Program",
+      "url": "https://dhewd.mo.gov/ppc/grants-scholarships/access-mo",
+      "asOf": "2026-08-08",
+      "note": "Maximum ten semesters, and separately ineligible once the student has completed 150 semester credit hours or received a first bachelor's degree, whichever occurs first. The credit-hour cap is independent of the semester cap and is the one a major switch is most likely to trip."
+    },
+    "bright-flight": {
+      "id": "bright-flight",
+      "label": "Missouri DHEWD — Bright Flight",
+      "url": "https://dhewd.mo.gov/ppc/grants-scholarships/bright-flight",
+      "asOf": "2026-08-08",
+      "note": "Up to ten semesters or until a bachelor's degree is completed, whichever occurs first."
+    },
+    "mst-gened31": {
+      "id": "mst-gened31",
+      "label": "Missouri S&T General Education requirements",
+      "url": "https://catalog.mst.edu/undergraduate/generaleducation/",
+      "asOf": "2026-08-08",
+      "unverified": true,
+      "note": "CREDIT STRUCTURE VERIFIED (3 mathematical science + 7 natural sciences incl. 1 lab hour from two disciplines + 6 communications + 15 humanities/arts/social sciences = 31). The per-block 'accepts' subject lists are approximations pending Day 2: confirm the exact S&T subject codes against the catalog, and note that two of these blocks additionally require coverage across two distinct disciplines, which the current creditBucket model does not enforce."
+    },
+    "mo-core42": {
+      "id": "mo-core42",
+      "label": "Missouri CORE 42 general education core (Registrar)",
+      "url": "https://registrar.mst.edu/transfercredit/core42/",
+      "asOf": "2026-08-08",
+      "unverified": true,
+      "note": "CREDIT STRUCTURE VERIFIED (9 social and behavioral + 9 communications + 7 natural sciences + 3 mathematical sciences + 9 humanities and fine arts + 5 electives = 42). The 'accepts' subject lists are approximations pending Day 2. The mechanic that matters: S&T states that BS degrees in engineering, business and IST, and chemistry typically do NOT follow CORE 42 due to accreditation requirements, while other BS degrees comply — so an engineering-to-psychology switch changes the general education framework itself, not merely the major courses."
+    },
+    "scorecard-178411": {
+      "id": "scorecard-178411",
+      "label": "College Scorecard — Missouri University of Science and Technology",
+      "url": "https://collegescorecard.ed.gov/school/?178411-Missouri-University-of-Science-and-Technology",
+      "asOf": "2026-08-08",
+      "note": "Completion within 100% of normal time 28.97%; within 150% 64.37%. Present as context only — S&T's four-to-six-year gap is substantially driven by its co-op culture and engineering course sequencing, not by major switching."
+    }
+  }
+}
