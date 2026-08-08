@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+/* Placeholder tokens only. The real design system is locked on Day 7 (Fri Aug 14)
+   in one 45-minute sitting: two families, five semantic colors, one spacing scale.
+   Two rules that are already decided and are not up for revisiting:
+     - the two paths are never red/green (colorblind-hostile, and it moralizes a
+       decision this tool explicitly does not make)
+     - body gets an explicit background, never a transparent one */
+@theme {
+  --color-surface: oklch(99% 0.004 95);
+  --color-ink: oklch(24% 0.012 265);
+  --color-muted: oklch(52% 0.014 265);
+  --color-line: oklch(91% 0.006 265);
+
+  /* the two futures */
+  --color-stay: oklch(56% 0.10 235);
+  --color-switch: oklch(62% 0.13 55);
+
+  --color-warn: oklch(58% 0.14 25);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
