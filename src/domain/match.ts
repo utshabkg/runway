@@ -43,6 +43,7 @@ import type {
   ElectiveSlack,
   Grade,
   Program,
+  RemainingItem,
   RemainingWork,
   Requirement,
   RequirementBlock,
@@ -331,13 +332,14 @@ export function allocate(courses: readonly CompletedCourse[], program: Program):
 
   for (const block of blocks) {
     let credits = 0
-    const items: string[] = []
+    const items: RemainingItem[] = []
     if (block.kind === 'core') {
       for (const requirement of block.requirements ?? []) {
         const filled = [...assignment.values()].some((a) => a.requirementId === requirement.id)
         if (!filled) {
           credits += requirement.credits
-          items.push(requirement.label)
+          const code = requirement.ref.kind === 'course' ? requirement.ref.code : undefined
+          items.push({ label: requirement.label, credits: requirement.credits, ...(code ? { code } : {}) })
         }
       }
     } else if (block.kind === 'chooseN') {
@@ -346,14 +348,22 @@ export function allocate(courses: readonly CompletedCourse[], program: Program):
       const shortfall = Math.max(0, need - got)
       if (shortfall > 0) {
         const cheapest = [...(block.requirements ?? [])].sort((a, b) => a.credits - b.credits)
-        credits += cheapest.slice(0, shortfall).reduce((sum, r) => sum + r.credits, 0)
-        items.push(`${shortfall} more from ${block.label}`)
+        for (const option of cheapest.slice(0, shortfall)) {
+          credits += option.credits
+          items.push({ label: `${block.label}: ${option.label}`, credits: option.credits })
+        }
       }
     } else if (block.kind === 'creditBucket') {
       const shortfall = Math.max(0, (block.minCredits ?? 0) - (bucketFilled.get(block.id) ?? 0))
       if (shortfall > 0) {
         credits += shortfall
-        items.push(`${shortfall} credits of ${block.label}`)
+        // Split into schedulable chunks; a 20-hour bucket is not one course.
+        let left = shortfall
+        while (left > 0) {
+          const chunk = Math.min(3, left)
+          items.push({ label: `${block.label} (${chunk} cr)`, credits: chunk })
+          left -= chunk
+        }
       }
     }
     if (credits > 0) {

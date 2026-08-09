@@ -507,8 +507,17 @@ export interface ElectiveSlack {
   overflowCredits: number
 }
 
+/** One schedulable unit of unfinished work. */
+export interface RemainingItem {
+  label: string
+  credits: number
+  /** Present when the unit is a specific named course, which is what lets the
+   *  projector look up its prerequisite depth. Absent for bucket credits. */
+  code?: CourseCode
+}
+
 export interface RemainingWork {
-  blocks: { blockId: string; label: string; credits: number; items: string[] }[]
+  blocks: { blockId: string; label: string; credits: number; items: RemainingItem[] }[]
   totalCredits: number
   /** The CORE 42 delta, surfaced as a number rather than hidden in a total. */
   addedByGenEdSwitch: number
