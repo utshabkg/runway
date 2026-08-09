@@ -1,32 +1,144 @@
 @import "tailwindcss";
 
-/* Placeholder tokens only. The real design system is locked on Day 7 (Fri Aug 14)
-   in one 45-minute sitting: two families, five semantic colors, one spacing scale.
-   Two rules that are already decided and are not up for revisiting:
-     - the two paths are never red/green (colorblind-hostile, and it moralizes a
-       decision this tool explicitly does not make)
-     - body gets an explicit background, never a transparent one */
+/**
+ * Design tokens.
+ *
+ * Two families, neither of them Inter or Roboto and neither loaded over the
+ * network: a serif for display, the system sans for everything else. No web
+ * font means no layout shift and nothing to fail on a slow connection.
+ *
+ * The chart palette is not a taste decision — it was run through the data-viz
+ * validator and the results are recorded beside each token. The two-step blue
+ * is an ORDINAL ramp (credits that fill a requirement, then credits absorbed as
+ * electives), and orphaned credit is deliberately NEUTRAL rather than red:
+ * a credit that does not count is inert, not an error, and colouring it like a
+ * failure would argue the opposite of what the evidence says.
+ */
+
 @theme {
-  --color-surface: oklch(99% 0.004 95);
-  --color-ink: oklch(24% 0.012 265);
-  --color-muted: oklch(52% 0.014 265);
-  --color-line: oklch(91% 0.006 265);
+  --font-display: Iowan Old Style, Palatino Linotype, Palatino, Georgia, serif;
+  --font-sans: system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
 
-  /* the two futures */
-  --color-stay: oklch(56% 0.10 235);
-  --color-switch: oklch(62% 0.13 55);
+  /* surfaces and ink */
+  --color-surface: #fcfcfb;
+  --color-plane: #f9f9f7;
+  --color-ink: #0b0b0b;
+  --color-ink-2: #52514e;
+  --color-muted: #898781;
+  --color-line: #e1e0d9;
+  --color-rule: #c3c2b7;
 
-  --color-warn: oklch(58% 0.14 25);
+  /* path identity — validated pair, CVD ΔE 24.7 (protan), normal 33.6 */
+  --color-stay: #2a78d6;
+  --color-switch: #eb6834;
+
+  /* credit fate — ordinal ramp, validated: monotone L, single hue, ΔL >= 0.06 */
+  --color-fate-satisfies: #2a78d6;
+  --color-fate-absorbed: #86b6ef;
+  --color-fate-orphaned: #898781;
+
+  /* status — fixed, never themed. Always paired with an icon and a label. */
+  --color-good: #0ca30c;
+  --color-warn: #fab219;
+  --color-serious: #ec835a;
+  --color-critical: #d03b3b;
+}
+
+/* Dark steps are selected for the dark surface, not flipped. Declared under
+   both scopes so the OS setting and an explicit theme stamp both win. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-surface: #1a1a19;
+    --color-plane: #0d0d0d;
+    --color-ink: #ffffff;
+    --color-ink-2: #c3c2b7;
+    --color-line: #2c2c2a;
+    --color-rule: #383835;
+    --color-stay: #3987e5;
+    --color-switch: #d95926;
+    --color-fate-satisfies: #3987e5;
+    --color-fate-absorbed: #184f95;
+  }
+}
+:root[data-theme="dark"] {
+  --color-surface: #1a1a19;
+  --color-plane: #0d0d0d;
+  --color-ink: #ffffff;
+  --color-ink-2: #c3c2b7;
+  --color-line: #2c2c2a;
+  --color-rule: #383835;
+  --color-stay: #3987e5;
+  --color-switch: #d95926;
+  --color-fate-satisfies: #3987e5;
+  --color-fate-absorbed: #184f95;
 }
 
 html,
 body,
 #root {
-  height: 100%;
+  min-height: 100%;
 }
 
 body {
-  background: var(--color-surface);
+  background: var(--color-plane);
   color: var(--color-ink);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Focus that is actually visible, on every interactive thing. */
+:where(a, button, select, input, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-stay);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* The advisor one-pager. Print is a first-class view, not an afterthought:
+   the whole point is that a student walks into advising holding this. */
+@page {
+  size: letter;
+  margin: 0.5in;
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 10.5pt;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  a {
+    text-decoration: none;
+  }
+  /* A printed page has no hover, so every source has to show its address. */
+  .sources a::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #555;
+    word-break: break-all;
+  }
+  section,
+  table,
+  li {
+    break-inside: avoid;
+  }
+}
+
+.print-only {
+  display: none;
 }
