@@ -10,13 +10,13 @@ import {
   MAX_INPUT_BYTES,
   PARSE_MODEL,
   clientKey,
-  client,
+  getClient,
   fail,
   hasApiKey,
   rateLimit,
   redact,
-} from './_lib/anthropic.ts'
-import { PARSE_FEWSHOT, PARSE_SCHEMA, PARSE_SYSTEM } from './_lib/prompts.ts'
+} from './_lib/anthropic.js'
+import { PARSE_FEWSHOT, PARSE_SCHEMA, PARSE_SYSTEM } from './_lib/prompts.js'
 
 interface Req {
   method?: string
@@ -61,7 +61,7 @@ export default async function handler(req: Req, res: Res): Promise<void> {
   const text = redact(raw)
 
   try {
-    const message = await client.messages.create({
+    const message = await getClient().messages.create({
       model: PARSE_MODEL,
       max_tokens: 8000,
       system: [

@@ -13,11 +13,19 @@ export const PARSE_MODEL = 'claude-haiku-4-5'
 /** The explanation is the prose a judge reads, so it gets a stronger model. */
 export const EXPLAIN_MODEL = 'claude-sonnet-5'
 
-export const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'] ?? '',
-  timeout: 25_000,
-  maxRetries: 2,
-})
+let cached: Anthropic | undefined
+
+/** Constructed on first use, not at module load. An eager client throws when
+ *  the key is absent, which turns what should be a graceful 503 into a
+ *  cold-start crash and a 500 with no explanation. */
+export function getClient(): Anthropic {
+  cached ??= new Anthropic({
+    apiKey: process.env['ANTHROPIC_API_KEY'] ?? '',
+    timeout: 25_000,
+    maxRetries: 2,
+  })
+  return cached
+}
 
 export function hasApiKey(): boolean {
   return Boolean(process.env['ANTHROPIC_API_KEY'])

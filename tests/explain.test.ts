@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { redact } from '../api/_lib/anthropic.ts'
-import { EXPLAIN_SYSTEM, PARSE_SYSTEM } from '../api/_lib/prompts.ts'
+import { redact } from '../api/_lib/anthropic.js'
+import { EXPLAIN_SYSTEM, PARSE_SYSTEM } from '../api/_lib/prompts.js'
 import { getProgram, getSchool } from '../src/data/registry.ts'
 import { PERSONAS, DEMO_NOW } from '../src/data/personas.ts'
 import { explainFallback } from '../src/domain/explainFallback.ts'

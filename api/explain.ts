@@ -6,8 +6,8 @@
  * The model receives figures that are already final and is forbidden from
  * recomputing them.
  */
-import { EXPLAIN_MODEL, clientKey, client, fail, hasApiKey, rateLimit } from './_lib/anthropic.ts'
-import { EXPLAIN_SCHEMA, EXPLAIN_SYSTEM } from './_lib/prompts.ts'
+import { EXPLAIN_MODEL, clientKey, getClient, fail, hasApiKey, rateLimit } from './_lib/anthropic.js'
+import { EXPLAIN_SCHEMA, EXPLAIN_SYSTEM } from './_lib/prompts.js'
 
 interface Req {
   method?: string
@@ -73,7 +73,7 @@ export default async function handler(req: Req, res: Res): Promise<void> {
   }
 
   try {
-    const message = await client.messages.create({
+    const message = await getClient().messages.create({
       model: EXPLAIN_MODEL,
       max_tokens: 1200,
       system: [{ type: 'text', text: EXPLAIN_SYSTEM, cache_control: { type: 'ephemeral' } }],
