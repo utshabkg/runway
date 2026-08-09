@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from 'react'
 import { CreditFateBar, ElectiveSlackMeter, RunwayGauge } from './components/Charts.tsx'
+import { TranscriptEditor } from './components/TranscriptEditor.tsx'
 import { DEMO_NOW, PERSONAS, type Persona } from './data/personas.ts'
 import { citationsFor, getProgram, getSchool, programsForSchool } from './data/registry.ts'
 import { formatCents } from './domain/cost.ts'
 import { explainFallback } from './domain/explainFallback.ts'
 import { simulate } from './domain/simulate.ts'
 import { graduationLabel, termLabel } from './domain/terms.ts'
-import type { Comparison, Explanation, PathProjection } from './domain/types.ts'
+import type { CompletedCourse, Comparison, Explanation, PathProjection, Transcript } from './domain/types.ts'
 
 const school = getSchool('mst')
 const programs = programsForSchool('mst')
@@ -56,25 +57,42 @@ export default function App() {
   const [personaId, setPersonaId] = useState(PERSONAS[0]!.id)
   const persona = PERSONAS.find((p) => p.id === personaId) as Persona
   const [switchTo, setSwitchTo] = useState(persona.switchProgramId)
-  const target = programs.some((p) => p.id === switchTo) ? switchTo : persona.switchProgramId
-  const isCoop = Boolean(persona.coop)
+
+  // Own-transcript mode. Kept beside the personas rather than replacing them:
+  // a judge should reach a full result in one click, and only then discover
+  // they can run their own.
+  const [own, setOwn] = useState<CompletedCourse[] | null>(null)
+  const [ownStay, setOwnStay] = useState(programs[0]!.id)
+  const usingOwn = own !== null
+
+  const stayProgramId = usingOwn ? ownStay : persona.stayProgramId
+  const fallbackTarget = usingOwn
+    ? (programs.find((p) => p.id !== ownStay)!.id)
+    : persona.switchProgramId
+  const target = programs.some((p) => p.id === switchTo) && switchTo !== stayProgramId ? switchTo : fallbackTarget
+  const isCoop = !usingOwn && Boolean(persona.coop)
+
+  const transcript: Transcript = useMemo(
+    () => (usingOwn ? { ...persona.transcript, courses: own } : persona.transcript),
+    [usingOwn, own, persona],
+  )
 
   const result: Comparison = useMemo(
     () =>
       simulate(
-        persona.transcript,
-        getProgram(persona.stayProgramId),
+        transcript,
+        getProgram(stayProgramId),
         getProgram(target),
         school,
         {
           load: persona.load,
           includeSummer: false,
           now: DEMO_NOW,
-          ...(persona.coop ? { switchCoop: persona.coop } : {}),
+          ...(isCoop && persona.coop ? { switchCoop: persona.coop } : {}),
         },
-        citationsFor('mst', [persona.stayProgramId, target]),
+        citationsFor('mst', [stayProgramId, target]),
       ),
-    [persona, target],
+    [transcript, stayProgramId, target, persona, isCoop],
   )
 
   // The deterministic explanation renders immediately; Claude upgrades it in
@@ -131,13 +149,14 @@ export default function App() {
             <button
               key={p.id}
               type="button"
-              aria-pressed={p.id === personaId}
+              aria-pressed={p.id === personaId && !usingOwn}
               onClick={() => {
                 setPersonaId(p.id)
                 setSwitchTo(p.switchProgramId)
+                setOwn(null)
               }}
               className={`rounded-xl border p-4 text-left transition ${
-                p.id === personaId
+                p.id === personaId && !usingOwn
                   ? 'border-ink bg-surface shadow-sm'
                   : 'border-line bg-surface/60 hover:border-rule'
               }`}
@@ -149,7 +168,47 @@ export default function App() {
         </div>
       </section>
 
-      <p className="mt-6 max-w-2xl font-display text-xl leading-snug">“{persona.question}”</p>
+      {!usingOwn && (
+        <p className="mt-6 max-w-2xl font-display text-xl leading-snug">“{persona.question}”</p>
+      )}
+
+      <section className="no-print mt-6">
+        {!usingOwn ? (
+          <button
+            type="button"
+            onClick={() => setOwn([])}
+            className="text-sm font-semibold underline hover:no-underline"
+          >
+            Or use your own transcript
+          </button>
+        ) : (
+          <>
+            <TranscriptEditor courses={own} onChange={setOwn} />
+            <div className="mt-3 flex flex-wrap items-center gap-3">
+              <label htmlFor="stay" className="text-sm text-ink-2">
+                Currently in
+              </label>
+              <select
+                id="stay"
+                value={ownStay}
+                onChange={(e) => setOwnStay(e.target.value)}
+                className="rounded-lg border border-rule bg-surface px-3 py-1.5 text-sm"
+              >
+                {programs.map((p) => (
+                  <option key={p.id} value={p.id}>{p.name}</option>
+                ))}
+              </select>
+              <button
+                type="button"
+                onClick={() => setOwn(null)}
+                className="text-sm underline hover:no-underline"
+              >
+                back to the demo students
+              </button>
+            </div>
+          </>
+        )}
+      </section>
 
       {!isCoop && (
         <div className="no-print mt-5 flex flex-wrap items-center gap-3">
@@ -163,7 +222,7 @@ export default function App() {
             className="rounded-lg border border-rule bg-surface px-3 py-1.5 text-sm"
           >
             {programs
-              .filter((p) => p.id !== persona.stayProgramId)
+              .filter((p) => p.id !== stayProgramId)
               .map((p) => (
                 <option key={p.id} value={p.id}>
                   {p.name}
