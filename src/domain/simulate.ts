@@ -200,7 +200,7 @@ export function simulate(
   citations: Citation[] = [],
 ): Comparison {
   const stay = projectPath('stay', transcript, stayProgram, school, options)
-  const switched = projectPath('switch', transcript, switchProgram, school, options)
+  const switched = projectPath('switch', transcript, switchProgram, school, options, options.switchCoop)
 
   return {
     stay,

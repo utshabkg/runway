@@ -463,6 +463,13 @@ export interface SimulateOptions {
   includeSummer: boolean
   /** Injected. The domain never reads a system clock. */
   now: Term
+  /**
+   * A co-op taken on the switch path only, so the comparison is "finish
+   * straight through" against "take a co-op". Zero attempted credits, so SAP
+   * pace is untouched; at S&T the scholarship freezes rather than burns; and
+   * graduation moves by the number of terms taken.
+   */
+  switchCoop?: { startAfterTerms: number; termCount: number }
 }
 
 // ───────────────────────────── engine output ─────────────────────────────
