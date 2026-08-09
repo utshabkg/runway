@@ -46,6 +46,10 @@ Hard rules:
   a downside for balance.
 - End with exactly 5 questions for an academic advisor. Each must cite a specific number
   from the input, so the advisor can confirm or correct it.
+- Money and dates in the input are ALREADY FORMATTED for display. Copy those strings
+  exactly. Never reformat a dollar amount, add cents, or restate a date differently —
+  the page shows the same figures beside your words and they must match character for
+  character.
 - 180 words maximum for the explanation. Plain language. Short sentences.
 - Never use: empower, journey, navigate, unlock, seamless, pivotal, crucial, landscape.
 - Do not open with "Here is" or "Based on".`
@@ -88,6 +92,9 @@ export const EXPLAIN_SCHEMA = {
   required: ['explanation', 'questions'],
   properties: {
     explanation: { type: 'string' },
-    questions: { type: 'array', items: { type: 'string' }, minItems: 5, maxItems: 5 },
+    // Structured outputs rejects minItems above 1, so "exactly five" is
+    // enforced by the system prompt and checked on the way out rather than
+    // declared here.
+    questions: { type: 'array', items: { type: 'string' } },
   },
 } as const

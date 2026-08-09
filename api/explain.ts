@@ -20,13 +20,28 @@ interface Res {
   setHeader: (name: string, value: string) => void
 }
 
+/** Money reaches the model ALREADY FORMATTED, in the same form the page shows.
+ *  Handing over raw cents invites it to render $55,233.54 beside a table that
+ *  says $55,234 — prose disagreeing with the figure above it is worse than no
+ *  prose at all. Same reason the term label is pre-rendered. */
+const usd = (cents: unknown): string =>
+  typeof cents === 'number'
+    ? (cents / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
+    : 'unknown'
+
+const MONTH: Record<string, string> = { SP: 'May', SU: 'August', FS: 'December' }
+const gradLabel = (t: unknown): string => {
+  const term = t as { year?: number; season?: string } | undefined
+  return term?.season && term?.year ? `${MONTH[term.season] ?? term.season} ${term.year}` : 'unknown'
+}
+
 /** Send aggregates and flags, not the per-course allocation list. The model
  *  does not need 60 rows to write three paragraphs, and the shorter prompt is
  *  both cheaper and less likely to invite invention. */
 function pruned(comparison: Record<string, unknown>): unknown {
   const path = (p: Record<string, unknown>) => ({
     programName: p['programName'],
-    graduationTerm: p['graduationTerm'],
+    graduatesIn: gradLabel(p['graduationTerm']),
     termsRemaining: p['termsRemaining'],
     survivingCredits: p['survivingCredits'],
     absorbedCredits: p['absorbedCredits'],
@@ -34,15 +49,24 @@ function pruned(comparison: Record<string, unknown>): unknown {
     electiveSlack: p['electiveSlack'],
     remainingCredits: (p['remaining'] as Record<string, unknown> | undefined)?.['totalCredits'],
     addedByGenEdSwitch: (p['remaining'] as Record<string, unknown> | undefined)?.['addedByGenEdSwitch'],
-    grandTotalCents: (p['cost'] as Record<string, unknown> | undefined)?.['grandTotal'],
+    costToFinish: usd((p['cost'] as Record<string, unknown> | undefined)?.['grandTotal']),
     aid: p['aid'],
     assumptions: p['assumptions'],
   })
   return {
     stay: path(comparison['stay'] as Record<string, unknown>),
     switch: path(comparison['switch'] as Record<string, unknown>),
-    delta: comparison['delta'],
-    timing: comparison['timing'],
+    delta: {
+      ...(comparison['delta'] as Record<string, unknown>),
+      extraCostFormatted: usd((comparison['delta'] as Record<string, unknown>)['extraCost']),
+    },
+    timing: (comparison['timing'] as Record<string, unknown>[]).map((t) => ({
+      switchAfterTerms: t['switchAfterTerms'],
+      totalCost: usd(t['totalCost']),
+      extraVsDecidingNow: usd(t['deltaCostVsNow']),
+      isCliff: t['isCliff'],
+      newlyBindingConstraints: t['newlyBindingConstraints'],
+    })),
     citations: comparison['citations'],
   }
 }
@@ -75,7 +99,7 @@ export default async function handler(req: Req, res: Res): Promise<void> {
   try {
     const message = await getClient().messages.create({
       model: EXPLAIN_MODEL,
-      max_tokens: 1200,
+      max_tokens: 2000,
       system: [{ type: 'text', text: EXPLAIN_SYSTEM, cache_control: { type: 'ephemeral' } }],
       output_config: { format: { type: 'json_schema', schema: EXPLAIN_SCHEMA } },
       messages: [
@@ -99,7 +123,14 @@ export default async function handler(req: Req, res: Res): Promise<void> {
       return
     }
     const parsed = JSON.parse(block.text) as { explanation: string; questions: string[] }
-    res.status(200).json({ ok: true, ...parsed, source: 'claude' })
+    // The schema cannot pin the count, so check it here. Returning four
+    // questions where the page promises five is worse than returning nothing:
+    // the client already holds a deterministic five and keeps them on a 502.
+    if (!Array.isArray(parsed.questions) || parsed.questions.length < 5 || !parsed.explanation?.trim()) {
+      res.status(502).json(fail('Incomplete explanation.'))
+      return
+    }
+    res.status(200).json({ ok: true, explanation: parsed.explanation, questions: parsed.questions.slice(0, 5), source: 'claude' })
   } catch {
     res.status(502).json(fail('Explanation unavailable.'))
   }
