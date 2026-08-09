@@ -99,9 +99,17 @@ export default async function handler(req: Req, res: Res): Promise<void> {
   try {
     const message = await getClient().messages.create({
       model: EXPLAIN_MODEL,
-      max_tokens: 2000,
+      // Sonnet 5 thinks by default and a measured run spent 1,136 of 1,809
+      // output tokens on it — which at max_tokens 2000 left the text block
+      // nothing to fit in and returned a response with no usable content.
+      // Headroom plus shallow effort: this task is prose from numbers that are
+      // already final, so deep reasoning buys nothing and costs latency.
+      max_tokens: 8000,
+      output_config: {
+        effort: 'low',
+        format: { type: 'json_schema', schema: EXPLAIN_SCHEMA },
+      },
       system: [{ type: 'text', text: EXPLAIN_SYSTEM, cache_control: { type: 'ephemeral' } }],
-      output_config: { format: { type: 'json_schema', schema: EXPLAIN_SCHEMA } },
       messages: [
         {
           role: 'user',
