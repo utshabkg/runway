@@ -1,0 +1,249 @@
+{
+  "id": "mst-psychology",
+  "schoolId": "mst",
+  "name": "Psychological Science, B.S.",
+  "degree": "BS",
+  "totalCredits": 120,
+  "genEdFrameworkId": "mo-core42",
+  "rateId": "rate-1",
+  "maxCreditsPerTerm": 18,
+  "catalogUrl": "https://catalog.mst.edu/undergraduate/degreeprogramsandcourses/psychology/",
+  "citationId": "mst-program-psychology",
+  "asOf": "2026-08-09",
+
+  "prereqDepth": {
+    "PSYCH 1100": 0,
+    "PSYCH 1101": 0,
+    "STAT 1115": 0,
+    "ENGLISH 1120": 0,
+    "ENGLISH 1160": 1,
+    "PSYCH 2200": 1,
+    "PSYCH 3310": 1,
+    "PSYCH 4400": 1,
+    "PSYCH 4410": 1,
+    "PSYCH 4411": 1,
+    "PSYCH 4501": 1,
+    "PSYCH 4600": 1,
+    "PSYCH 4590": 1,
+    "PSYCH 4720": 1,
+    "PSYCH 4992": 1,
+    "PSYCH 4993": 1,
+    "PSYCH 4990": 2
+  },
+
+  "blocks": [
+    {
+      "id": "psych-major-required",
+      "kind": "core",
+      "label": "Psychology required courses — general skills and content",
+      "priority": 10,
+      "citationId": "mst-program-psychology",
+      "requirements": [
+        { "id": "psych-1100", "label": "PSYCH 1100 Introduction to Psychology", "ref": { "kind": "course", "code": "PSYCH 1100" }, "credits": 1 },
+        { "id": "psych-1101", "label": "PSYCH 1101 General Psychology", "ref": { "kind": "course", "code": "PSYCH 1101" }, "credits": 3 },
+        {
+          "id": "psych-2200",
+          "label": "PSYCH 2200 Research Methods",
+          "ref": { "kind": "course", "code": "PSYCH 2200" },
+          "credits": 4,
+          "note": "LAB 1.0 and LEC 3.0. Prerequisites: PSYCH 1101; STAT 1115 or STAT 3113."
+        },
+        {
+          "id": "psych-3310",
+          "label": "PSYCH 3310 Developmental Psychology",
+          "ref": { "kind": "course", "code": "PSYCH 3310" },
+          "credits": 3,
+          "minGrade": "C-",
+          "note": "Upper-class (3000-level and above) courses completed with a grade of D may not be included in the major field without the approval of the advisor and the department chair."
+        },
+        {
+          "id": "psych-4400",
+          "label": "PSYCH 4400 Cognitive Psychology",
+          "ref": { "kind": "course", "code": "PSYCH 4400" },
+          "credits": 3,
+          "minGrade": "C-"
+        },
+        {
+          "id": "psych-4501",
+          "label": "PSYCH 4501 Abnormal Psychology",
+          "ref": { "kind": "course", "code": "PSYCH 4501" },
+          "credits": 3,
+          "minGrade": "C-"
+        },
+        {
+          "id": "psych-4600",
+          "label": "PSYCH 4600 Social Psychology",
+          "ref": { "kind": "course", "code": "PSYCH 4600" },
+          "credits": 3,
+          "minGrade": "C-"
+        }
+      ]
+    },
+    {
+      "id": "psych-biological-basis",
+      "kind": "chooseN",
+      "label": "And one of the following 2 courses",
+      "priority": 20,
+      "chooseN": 1,
+      "minGrade": "C-",
+      "citationId": "mst-program-psychology",
+      "requirements": [
+        { "id": "psych-4410", "label": "PSYCH 4410 Neuroscience", "ref": { "kind": "course", "code": "PSYCH 4410" }, "credits": 3 },
+        { "id": "psych-4411", "label": "PSYCH 4411 Sensation and Perception", "ref": { "kind": "course", "code": "PSYCH 4411" }, "credits": 3 }
+      ]
+    },
+    {
+      "id": "psych-capstone",
+      "kind": "chooseN",
+      "label": "Capstone Course — select three credit hours from the following Capstone courses",
+      "priority": 20,
+      "chooseN": 1,
+      "minGrade": "C-",
+      "citationId": "mst-program-psychology",
+      "requirements": [
+        { "id": "psych-4995", "label": "PSYCH 4995 Rationality", "ref": { "kind": "course", "code": "PSYCH 4995" }, "credits": 3 },
+        { "id": "psych-4720", "label": "PSYCH 4720 Psychology of Social Technology", "ref": { "kind": "course", "code": "PSYCH 4720" }, "credits": 3 },
+        { "id": "psych-4590", "label": "PSYCH 4590 Health Psychology", "ref": { "kind": "course", "code": "PSYCH 4590" }, "credits": 3 },
+        { "id": "psych-4992", "label": "PSYCH 4992 Cross-Cultural Psychology", "ref": { "kind": "course", "code": "PSYCH 4992" }, "credits": 3 },
+        { "id": "psych-4993", "label": "PSYCH 4993 Psychology of Gender", "ref": { "kind": "course", "code": "PSYCH 4993" }, "credits": 3 },
+        {
+          "id": "psych-4990",
+          "label": "PSYCH 4990 Internship",
+          "ref": { "kind": "course", "code": "PSYCH 4990" },
+          "credits": 3,
+          "note": "The catalog prints this course as 0-6 variable credit; the capstone requirement is stated as three credit hours, so exactly 3 are applied here. Prerequisite: junior or senior psychology major, consent of instructor, 9 hours completed in the major."
+        },
+        {
+          "id": "psych-4099",
+          "label": "PSYCH 4099 Undergraduate Research",
+          "ref": { "kind": "course", "code": "PSYCH 4099" },
+          "credits": 3,
+          "note": "The catalog prints this course as 0-6 variable credit; the capstone requirement is stated as three credit hours, so exactly 3 are applied here. Prerequisite: instructor consent."
+        }
+      ]
+    },
+    {
+      "id": "psych-major-electives",
+      "kind": "creditBucket",
+      "label": "Psychology electives — an additional 9 hours to complete the 35 hour degree requirement",
+      "priority": 30,
+      "minCredits": 9,
+      "feeSubjectHint": "PSYCH",
+      "citationId": "mst-program-psychology",
+      "accepts": [{ "kind": "pattern", "subject": "PSYCH" }]
+    },
+    {
+      "id": "psych-english-composition",
+      "kind": "core",
+      "label": "English composition (6 hours)",
+      "priority": 10,
+      "isGenEd": true,
+      "citationId": "mst-program-psychology",
+      "requirements": [
+        { "id": "psych-english-1120", "label": "ENGLISH 1120 Exposition And Argumentation", "ref": { "kind": "course", "code": "ENGLISH 1120" }, "credits": 3 },
+        {
+          "id": "psych-english-1160",
+          "label": "ENGLISH 1160 Writing And Research",
+          "ref": { "kind": "course", "code": "ENGLISH 1160" },
+          "credits": 3,
+          "note": "Prerequisite: ENGLISH 1120."
+        }
+      ]
+    },
+    {
+      "id": "psych-statistics",
+      "kind": "core",
+      "label": "Statistics — named within the 23-hour science and mathematics requirement",
+      "priority": 10,
+      "isGenEd": true,
+      "citationId": "mst-program-psychology",
+      "requirements": [
+        {
+          "id": "psych-stat-1115",
+          "label": "STAT 1115 Statistics For The Social Sciences I",
+          "ref": { "kind": "course", "code": "STAT 1115" },
+          "credits": 3,
+          "note": "Named as required inside the 23-hour science and math area, so the remaining 20 hours of that area are carried by the science and mathematics elective block. Carries the Missouri transfer designation MOTR MATH 110 Statistical Reasoning."
+        }
+      ]
+    },
+    {
+      "id": "psych-williams-law",
+      "kind": "core",
+      "label": "State of Missouri civics requirement (the \"Williams Law\") — counts toward the 12-hour social sciences requirement",
+      "priority": 10,
+      "isGenEd": true,
+      "citationId": "mst-program-psychology",
+      "requirements": [
+        {
+          "id": "psych-williams-law-course",
+          "label": "HISTORY 1200 Modern Western Civilization, HISTORY 1300 American History To 1877, HISTORY 1310 American History Since 1877, or POL SCI 1200 American Government",
+          "ref": { "kind": "anyOf", "codes": ["HISTORY 1200", "HISTORY 1300", "HISTORY 1310", "POL SCI 1200"] },
+          "credits": 3,
+          "note": "Must be taken to satisfy the requirement of the state of Missouri, and this course may count toward fulfilling the social sciences requirement."
+        }
+      ]
+    },
+    {
+      "id": "psych-science-math",
+      "kind": "creditBucket",
+      "label": "Science and mathematics electives — 20 hours, the balance of the 23-hour science, mathematics and computer science requirement after STAT 1115",
+      "priority": 30,
+      "minCredits": 20,
+      "isGenEd": true,
+      "citationId": "mst-program-psychology",
+      "accepts": [
+        { "kind": "pattern", "subject": "BIO SCI" },
+        { "kind": "pattern", "subject": "CHEM" },
+        { "kind": "pattern", "subject": "GEOLOGY" },
+        { "kind": "pattern", "subject": "PHYSICS" },
+        { "kind": "pattern", "subject": "MATH" },
+        { "kind": "pattern", "subject": "STAT" },
+        { "kind": "pattern", "subject": "COMP SCI" },
+        { "kind": "pattern", "subject": "IS&T" }
+      ]
+    },
+    {
+      "id": "psych-humanities",
+      "kind": "creditBucket",
+      "label": "Humanities and fine arts (12 hours, taken in at least two humanities areas)",
+      "priority": 30,
+      "minCredits": 12,
+      "isGenEd": true,
+      "citationId": "mst-program-psychology",
+      "accepts": [
+        { "kind": "pattern", "subject": "ENGLISH" },
+        { "kind": "pattern", "subject": "PHILOS" },
+        { "kind": "pattern", "subject": "ART" },
+        { "kind": "pattern", "subject": "MUSIC" },
+        { "kind": "pattern", "subject": "THEATRE" },
+        { "kind": "pattern", "subject": "FRENCH" },
+        { "kind": "pattern", "subject": "GERMAN" },
+        { "kind": "pattern", "subject": "RUSSIAN" },
+        { "kind": "pattern", "subject": "SPANISH" }
+      ]
+    },
+    {
+      "id": "psych-social-sciences",
+      "kind": "creditBucket",
+      "label": "Social sciences electives — 9 hours, the balance of the 12-hour social sciences requirement after the Williams Law course",
+      "priority": 30,
+      "minCredits": 9,
+      "isGenEd": true,
+      "citationId": "mst-program-psychology",
+      "accepts": [
+        { "kind": "pattern", "subject": "ECON" },
+        { "kind": "pattern", "subject": "HISTORY" },
+        { "kind": "pattern", "subject": "POL SCI" }
+      ]
+    },
+    {
+      "id": "psych-free-elective",
+      "kind": "freeElective",
+      "label": "Elective credits — sufficient additional courses to complete a minimum of 120 credit hours",
+      "priority": 40,
+      "capacityCredits": 32,
+      "citationId": "mst-program-psychology"
+    }
+  ]
+}

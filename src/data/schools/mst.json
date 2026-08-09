@@ -231,6 +231,27 @@
       "url": "https://catalog.mst.edu/undergraduate/degreeprogramsandcourses/computerscience/",
       "asOf": "2026-08-09",
       "note": "Transcribed from the published four-year plan of study. Term totals 16+17+16+16+15+15+16+16 reconcile to 127; the catalog states 127-128 because the Lecture-Laboratory Science Elective is 4-5 hours and this spec takes the 4-hour minimum, the conservative reading. Free elective capacity is 7 hours (3 in the senior fall, 4 in the senior spring). The program requires a grade of C or better in all Computer Science courses, in COMP ENG 2210, and in the ethics elective."
+    },
+    "mst-program-mech-eng": {
+      "id": "mst-program-mech-eng",
+      "label": "Missouri S&T Catalog 2026-2027 — Mechanical Engineering, B.S.",
+      "url": "https://catalog.mst.edu/undergraduate/degreeprogramsandcourses/mechanicalengineering/",
+      "asOf": "2026-08-09",
+      "note": "Transcribed from the published four-year plan of study; term totals reconcile to the catalog's stated 128 hours. FREE ELECTIVE CAPACITY IS ZERO, and that is not an omission: the phrase 'free elective' does not appear anywhere on the program page. Every elective slot in the plan is constrained (Gen. Ed. Elective, Programming Elective, Elective-Advanced Math/Stat, Breadth elective, MECH ENG technical elective, MECH ENG 5000-level technical elective, Technical elective). The practical consequence is that a switch INTO mechanical engineering has no absorption capacity at all, so completed work that does not match a named requirement is genuinely orphaned rather than converted to elective credit."
+    },
+    "mst-program-psychology": {
+      "id": "mst-program-psychology",
+      "label": "Missouri S&T Catalog 2026-2027 — Psychological Science, B.S.",
+      "url": "https://catalog.mst.edu/undergraduate/degreeprogramsandcourses/psychology/",
+      "asOf": "2026-08-09",
+      "note": "Transcribed for the B.S. only; the page also carries the B.A. and a B.A. Secondary Education emphasis. Unlike engineering, psychology publishes no four-year plan grid — the catalog states the curriculum in prose: 'The psychological science bachelor of science curriculum requires 6 hours of English composition; 23 hours of math, science, and/or computer science; 12 hours in the humanities; and 12 hours in social sciences', plus 35 hours of psychology (26 required + 9 electives). That totals 88, and the catalog describes the balance as 'sufficient additional courses to complete a minimum of 120 credit hours' — so free elective capacity is the 32-hour residual, stated by the catalog rather than inferred. Two decompositions here are deliberate: the Williams Law civics course is carried inside the 12-hour social sciences requirement, which the catalog explicitly permits ('this course may count toward fulfilling the social sciences requirement'), and statistics is carried inside the 23-hour math/science requirement. This program follows Missouri CORE 42."
+    },
+    "mst-program-ist": {
+      "id": "mst-program-ist",
+      "label": "Missouri S&T Catalog 2026-2027 — Information Science & Technology, B.S.",
+      "url": "https://catalog.mst.edu/undergraduate/degreeprogramsandcourses/informationscienceandtechnology/",
+      "asOf": "2026-08-09",
+      "note": "Transcribed from the published four-year plan of study; reconciles to the catalog's stated 120 hours with 11 hours of free electives. IST is one of the B.S. degrees S&T exempts from CORE 42 for accreditation reasons, so it follows the 31-hour S&T general education core."
     }
   }
 }

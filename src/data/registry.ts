@@ -14,6 +14,9 @@ import mstGenEd31Json from './geneds/mst-gened31.json'
 import core42Json from './geneds/mo-core42.json'
 
 import mstComputerScienceJson from './programs/mst-computer-science.json'
+import mstMechanicalEngineeringJson from './programs/mst-mechanical-engineering.json'
+import mstPsychologyJson from './programs/mst-psychology.json'
+import mstInformationScienceTechnologyJson from './programs/mst-information-science-technology.json'
 
 /**
  * On disk a school file carries no gen-ed frameworks; those live in their own
@@ -56,7 +59,12 @@ export const schools: Record<string, School> = Object.fromEntries(
 // ── programs ───────────────────────────────────────────────────────────────
 
 /** Populated as each S&T major is transformed from the catalog. */
-const PROGRAM_FILES: readonly unknown[] = [mstComputerScienceJson]
+const PROGRAM_FILES: readonly unknown[] = [
+  mstComputerScienceJson,
+  mstMechanicalEngineeringJson,
+  mstPsychologyJson,
+  mstInformationScienceTechnologyJson,
+]
 
 export const programs: Record<string, Program> = Object.fromEntries(
   PROGRAM_FILES.map((file) => {

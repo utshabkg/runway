@@ -1,0 +1,177 @@
+{
+  "id": "mst-information-science-technology",
+  "schoolId": "mst",
+  "name": "Information Science & Technology, B.S.",
+  "degree": "BS",
+  "totalCredits": 120,
+  "genEdFrameworkId": "mst-gened31",
+  "rateId": "rate-2",
+  "maxCreditsPerTerm": 18,
+  "catalogUrl": "https://catalog.mst.edu/undergraduate/degreeprogramsandcourses/informationscienceandtechnology/",
+  "citationId": "mst-program-ist",
+  "asOf": "2026-08-09",
+
+  "prereqDepth": {
+    "IS&T 1551": 0,
+    "IS&T 1750": 0,
+    "IS&T 1552": 1,
+    "ERP 2110": 2,
+    "IS&T 3420": 3,
+    "IS&T 3333": 4,
+    "IS&T 3423": 4,
+    "IS&T 4654": 4,
+    "IS&T 3343": 5,
+    "IS&T 4444": 5,
+    "IS&T 5520": 6,
+    "IS&T 5725": 6,
+    "IS&T 5420": 7,
+    "BUS 1210": 1,
+    "FINANCE 2150": 2,
+    "MATH 1210": 1,
+    "STAT 1115": 3
+  },
+
+  "blocks": [
+    {
+      "id": "ist-core",
+      "kind": "core",
+      "label": "Information Science and Technology core",
+      "priority": 10,
+      "minGrade": "C",
+      "citationId": "mst-program-ist",
+      "requirements": [
+        { "id": "ist-1551", "label": "IS&T 1551 Implementing Information Systems: User Perspective", "ref": { "kind": "course", "code": "IS&T 1551" }, "credits": 3 },
+        { "id": "ist-1552", "label": "IS&T 1552 Implementing Information Systems: Data Perspective", "ref": { "kind": "course", "code": "IS&T 1552" }, "credits": 3 },
+        { "id": "ist-1750", "label": "IS&T 1750 Introduction to Management Information Systems", "ref": { "kind": "course", "code": "IS&T 1750" }, "credits": 3 },
+        { "id": "ist-erp-2110", "label": "ERP 2110 Introduction to Enterprise Resource Planning", "ref": { "kind": "course", "code": "ERP 2110" }, "credits": 3 },
+        { "id": "ist-3333", "label": "IS&T 3333 Data Networks and Information Security", "ref": { "kind": "course", "code": "IS&T 3333" }, "credits": 3 },
+        { "id": "ist-3343", "label": "IS&T 3343 Systems Analysis", "ref": { "kind": "course", "code": "IS&T 3343" }, "credits": 3 },
+        { "id": "ist-3420", "label": "IS&T 3420 Introduction to Data Science and Management", "ref": { "kind": "course", "code": "IS&T 3420" }, "credits": 3 },
+        { "id": "ist-3423", "label": "IS&T 3423 Database Management", "ref": { "kind": "course", "code": "IS&T 3423" }, "credits": 3 },
+        { "id": "ist-4444", "label": "IS&T 4444", "ref": { "kind": "course", "code": "IS&T 4444" }, "credits": 3 },
+        { "id": "ist-4654", "label": "IS&T 4654 Introduction to Web Design and Digital Media Studies", "ref": { "kind": "course", "code": "IS&T 4654" }, "credits": 3 },
+        { "id": "ist-5420", "label": "IS&T 5420 Business Analytics and Data Science", "ref": { "kind": "course", "code": "IS&T 5420" }, "credits": 3 },
+        { "id": "ist-5520", "label": "IS&T 5520 Data Science and Machine Learning with Python", "ref": { "kind": "course", "code": "IS&T 5520" }, "credits": 3 },
+        { "id": "ist-5725", "label": "IS&T 5725 Fundamentals of Cybersecurity Analytics", "ref": { "kind": "course", "code": "IS&T 5725" }, "credits": 3 }
+      ]
+    },
+    {
+      "id": "ist-business-core",
+      "kind": "core",
+      "label": "Business and quantitative core",
+      "priority": 10,
+      "citationId": "mst-program-ist",
+      "requirements": [
+        { "id": "ist-bus-1810", "label": "BUS 1810", "ref": { "kind": "course", "code": "BUS 1810" }, "credits": 1, "minGrade": "C" },
+        { "id": "ist-bus-1110", "label": "BUS 1110 Introduction to Management and Entrepreneurship", "ref": { "kind": "course", "code": "BUS 1110" }, "credits": 3, "minGrade": "C" },
+        { "id": "ist-bus-1210", "label": "BUS 1210 Financial Accounting", "ref": { "kind": "course", "code": "BUS 1210" }, "credits": 3, "minGrade": "C" },
+        { "id": "ist-finance-2150", "label": "FINANCE 2150 Corporate Finance I", "ref": { "kind": "course", "code": "FINANCE 2150" }, "credits": 3, "minGrade": "C" },
+        { "id": "ist-mkt-3110", "label": "MKT 3110 Marketing", "ref": { "kind": "course", "code": "MKT 3110" }, "credits": 3, "minGrade": "C" },
+        { "id": "ist-bus-5980", "label": "BUS 5980 Business Models for Entrepreneurship and Innovation", "ref": { "kind": "course", "code": "BUS 5980" }, "credits": 3, "minGrade": "C" },
+        {
+          "id": "ist-stat-1115",
+          "label": "STAT 1115 Statistics For The Social Sciences I",
+          "ref": { "kind": "course", "code": "STAT 1115" },
+          "credits": 3,
+          "note": "Not named in the catalog's C-or-better graduation list, so no grade floor is recorded for it."
+        }
+      ]
+    },
+    {
+      "id": "ist-gened-named",
+      "kind": "core",
+      "label": "General education discipline required courses named in the plan of study",
+      "priority": 10,
+      "isGenEd": true,
+      "citationId": "mst-program-ist",
+      "requirements": [
+        { "id": "ist-english-1120", "label": "ENGLISH 1120", "ref": { "kind": "course", "code": "ENGLISH 1120" }, "credits": 3 },
+        { "id": "ist-math-1210", "label": "MATH 1210", "ref": { "kind": "course", "code": "MATH 1210" }, "credits": 5 },
+        { "id": "ist-psych-1101", "label": "PSYCH 1101", "ref": { "kind": "course", "code": "PSYCH 1101" }, "credits": 3 },
+        { "id": "ist-spms-1185", "label": "SP&M S 1185", "ref": { "kind": "course", "code": "SP&M S 1185" }, "credits": 3 },
+        { "id": "ist-econ-1200", "label": "ECON 1200 Principles Of Macroeconomics", "ref": { "kind": "course", "code": "ECON 1200" }, "credits": 3, "minGrade": "C" },
+        { "id": "ist-econ-1100", "label": "ECON 1100 Principles Of Microeconomics", "ref": { "kind": "course", "code": "ECON 1100" }, "credits": 3, "minGrade": "C" },
+        {
+          "id": "ist-english-2560",
+          "label": "ENGLISH 2560 (or TECHCOM 2560)",
+          "ref": { "kind": "anyOf", "codes": ["ENGLISH 2560", "TECHCOM 2560"] },
+          "credits": 3
+        },
+        { "id": "ist-pol-sci-1200", "label": "POL SCI 1200", "ref": { "kind": "course", "code": "POL SCI 1200" }, "credits": 3 }
+      ]
+    },
+    {
+      "id": "ist-science-elective",
+      "kind": "creditBucket",
+      "label": "Science Elective",
+      "priority": 30,
+      "minCredits": 6,
+      "isGenEd": true,
+      "feeSubjectHint": "CHEM",
+      "citationId": "mst-program-ist",
+      "accepts": [
+        { "kind": "pattern", "subject": "BIO SCI" },
+        { "kind": "pattern", "subject": "CHEM" },
+        { "kind": "pattern", "subject": "GEOLOGY" },
+        { "kind": "pattern", "subject": "PHYSICS" }
+      ]
+    },
+    {
+      "id": "ist-science-lab",
+      "kind": "creditBucket",
+      "label": "Science Lab",
+      "priority": 30,
+      "minCredits": 1,
+      "isGenEd": true,
+      "feeSubjectHint": "CHEM",
+      "citationId": "mst-program-ist",
+      "accepts": [
+        { "kind": "pattern", "subject": "BIO SCI" },
+        { "kind": "pattern", "subject": "CHEM" },
+        { "kind": "pattern", "subject": "GEOLOGY" },
+        { "kind": "pattern", "subject": "PHYSICS" }
+      ]
+    },
+    {
+      "id": "ist-fine-art-humanities",
+      "kind": "creditBucket",
+      "label": "Fine Art, or Humanities Elective",
+      "priority": 30,
+      "minCredits": 3,
+      "isGenEd": true,
+      "citationId": "mst-program-ist",
+      "accepts": [
+        { "kind": "pattern", "subject": "ART" },
+        { "kind": "pattern", "subject": "HISTORY" },
+        { "kind": "pattern", "subject": "MUSIC" },
+        { "kind": "pattern", "subject": "THEATRE" }
+      ]
+    },
+    {
+      "id": "ist-elective",
+      "kind": "creditBucket",
+      "label": "IS&T Electives",
+      "priority": 30,
+      "minCredits": 15,
+      "minGrade": "C",
+      "feeSubjectHint": "IS&T",
+      "citationId": "mst-program-ist",
+      "accepts": [
+        { "kind": "pattern", "subject": "IS&T", "minLevel": 3000 },
+        { "kind": "pattern", "subject": "ERP", "minLevel": 3000 },
+        { "kind": "course", "code": "BUS 5730" },
+        { "kind": "course", "code": "BUS 5910" },
+        { "kind": "course", "code": "COMP SCI 4700" },
+        { "kind": "course", "code": "COMP SCI 5601" }
+      ]
+    },
+    {
+      "id": "ist-free-elective",
+      "kind": "freeElective",
+      "label": "Free Electives",
+      "priority": 40,
+      "capacityCredits": 11,
+      "citationId": "mst-program-ist"
+    }
+  ]
+}
