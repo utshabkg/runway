@@ -54,8 +54,15 @@ Hard rules:
 - Never use: empower, journey, navigate, unlock, seamless, pivotal, crucial, landscape.
 - Do not open with "Here is" or "Based on".`
 
-/** Strict schema — with structured outputs this eliminates the JSON-parse
- *  failure class entirely, which is worth far more than the token cost. */
+/**
+ * Strict schema. Structured outputs eliminates the JSON-parse failure class
+ * entirely, which is worth far more than the token cost — but its JSON Schema
+ * subset is narrower than it looks. Learned by calling it: no `minItems` above
+ * 1, no `minimum`/`maximum`, and a nullable enum needs `anyOf` rather than a
+ * `['string','null']` type union. Each of those is a 400 on every request, not
+ * a soft degrade, so anything the subset cannot express is enforced in the
+ * handler instead.
+ */
 export const PARSE_SCHEMA = {
   type: 'object',
   additionalProperties: false,
@@ -76,9 +83,13 @@ export const PARSE_SCHEMA = {
             type: 'string',
             enum: ['A','A-','B+','B','B-','C+','C','C-','D+','D','D-','F','W','I','S','U','TR','CR'],
           },
-          termYear: { type: ['integer', 'null'] },
-          termSeason: { type: ['string', 'null'], enum: ['FS', 'SP', 'SU', null] },
-          confidence: { type: 'number', minimum: 0, maximum: 1 },
+          // Nullable fields need anyOf, not a type union: structured outputs
+          // rejects an enum declared against type ['string','null'].
+          termYear: { anyOf: [{ type: 'integer' }, { type: 'null' }] },
+          termSeason: { anyOf: [{ type: 'string', enum: ['FS', 'SP', 'SU'] }, { type: 'null' }] },
+          // Structured outputs supports neither numeric bounds nor array
+          // length: confidence is clamped to 0..1 by the handler instead.
+          confidence: { type: 'number' },
         },
       },
     },

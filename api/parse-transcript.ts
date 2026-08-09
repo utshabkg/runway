@@ -85,7 +85,18 @@ export default async function handler(req: Req, res: Res): Promise<void> {
       return
     }
 
-    res.status(200).json({ ok: true, ...JSON.parse(block.text) })
+    const parsed = JSON.parse(block.text) as {
+      courses?: { credits?: number; confidence?: number }[]
+      parseNotes?: string[]
+    }
+    // The schema cannot bound a number, so bound it here. A row claiming
+    // confidence 1.4 would defeat the "check this" affordance that makes the
+    // editable table trustworthy.
+    for (const row of parsed.courses ?? []) {
+      row.confidence = Math.min(1, Math.max(0, Number(row.confidence ?? 0)))
+      row.credits = Math.max(0, Number(row.credits ?? 0))
+    }
+    res.status(200).json({ ok: true, courses: parsed.courses ?? [], parseNotes: parsed.parseNotes ?? [] })
   } catch {
     // Deliberately opaque and deliberately unlogged: the input is somebody's
     // transcript. The client falls back to the editable table either way.
