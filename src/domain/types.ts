@@ -413,6 +413,18 @@ export interface School {
   id: string
   name: string
   ipedsId: string
+  /**
+   * Every subject code the school actually uses.
+   *
+   * This exists because a requirement pattern built on a subject the school
+   * does not offer matches nothing, silently — the block simply never fills,
+   * and no total changes to give it away. An early draft of the general
+   * education files accepted SOC for sociology, which Missouri S&T does not
+   * offer; six dead patterns rode that mistake into four files before a
+   * verification pass caught it. tests/data.test.ts now rejects any subject
+   * code absent from this list.
+   */
+  subjects: Subject[]
   tuition: TuitionModel
   fees: FeeSchedule
   sap: SapPolicy

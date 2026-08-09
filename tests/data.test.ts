@@ -14,10 +14,12 @@ import {
   getProgram,
   getSchool,
   programs,
+  programsForSchool,
   schools,
   unverifiedCitations,
 } from '../src/data/registry.ts'
 import { blockCredits, checkProgramIntegrity } from '../src/data/schema.ts'
+import type { RequirementBlock } from '../src/domain/types.ts'
 
 const schoolIds = Object.keys(schools)
 const programIds = Object.keys(programs)
@@ -77,6 +79,57 @@ describe('SAP policy is stated conservatively', () => {
     const { pell } = getSchool(id)
     expect(pell.lifetimeEligibilityPct).toBe(600)
     expect(pell.appealable).toBe(false)
+  })
+})
+
+describe('subject codes resolve', () => {
+  /** Every subject named anywhere in a program or gen-ed framework, whether in
+   *  an accepts pattern or embedded in a course code. */
+  function subjectsReferencedBy(schoolId: string): { where: string; subject: string }[] {
+    const school = getSchool(schoolId)
+    const found: { where: string; subject: string }[] = []
+    const subjectOf = (code: string) => code.replace(/\s+\d.*$/, '').trim()
+
+    const scanBlocks = (where: string, blocks: RequirementBlock[]) => {
+      for (const block of blocks) {
+        for (const accept of block.accepts ?? []) {
+          if (accept.kind === 'pattern') found.push({ where: `${where}/${block.id}`, subject: accept.subject })
+        }
+        for (const req of block.requirements ?? []) {
+          const codes = req.ref.kind === 'course' ? [req.ref.code] : req.ref.kind === 'anyOf' ? req.ref.codes : []
+          for (const code of codes) found.push({ where: `${where}/${req.id}`, subject: subjectOf(code) })
+          if (req.ref.kind === 'pattern') found.push({ where: `${where}/${req.id}`, subject: req.ref.subject })
+        }
+      }
+    }
+
+    for (const framework of Object.values(school.genEdFrameworks)) scanBlocks(framework.id, framework.blocks)
+    for (const program of programsForSchool(schoolId)) {
+      scanBlocks(program.id, program.blocks)
+      for (const code of Object.keys(program.prereqDepth)) {
+        found.push({ where: `${program.id}/prereqDepth`, subject: subjectOf(code) })
+      }
+    }
+    return found
+  }
+
+  it.each(schoolIds)('%s: every subject referenced in the data is one the school offers', (id) => {
+    // A pattern naming a subject the school does not offer matches nothing and
+    // fails silently — no total moves, the block just never fills. This caught
+    // six dead SOC (sociology) patterns across four files, and TECHCOM where
+    // the catalog says TCH COM.
+    const offered = new Set(getSchool(id).subjects)
+    const unknown = subjectsReferencedBy(id).filter((r) => !offered.has(r.subject))
+    expect(unknown.map((r) => `${r.subject} @ ${r.where}`)).toEqual([])
+  })
+
+  it('mst knows its own subject list and does not invent sociology', () => {
+    const { subjects } = getSchool('mst')
+    expect(subjects).toContain('COMP SCI')
+    expect(subjects).toContain('SP&M S')
+    expect(subjects).toContain('TCH COM')
+    expect(subjects).not.toContain('SOC')
+    expect(subjects).not.toContain('TECHCOM')
   })
 })
 

@@ -93,8 +93,8 @@
         { "id": "ist-econ-1100", "label": "ECON 1100 Principles Of Microeconomics", "ref": { "kind": "course", "code": "ECON 1100" }, "credits": 3, "minGrade": "C" },
         {
           "id": "ist-english-2560",
-          "label": "ENGLISH 2560 (or TECHCOM 2560)",
-          "ref": { "kind": "anyOf", "codes": ["ENGLISH 2560", "TECHCOM 2560"] },
+          "label": "ENGLISH 2560 (or TCH COM 2560)",
+          "ref": { "kind": "anyOf", "codes": ["ENGLISH 2560", "TCH COM 2560"] },
           "credits": 3
         },
         { "id": "ist-pol-sci-1200", "label": "POL SCI 1200", "ref": { "kind": "course", "code": "POL SCI 1200" }, "credits": 3 }

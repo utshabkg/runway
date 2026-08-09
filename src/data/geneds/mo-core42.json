@@ -12,8 +12,14 @@
       "priority": 30,
       "citationId": "mo-core42",
       "accepts": [
-        { "kind": "pattern", "subject": "ENGLISH" },
-        { "kind": "pattern", "subject": "SP&M S" }
+        {
+          "kind": "pattern",
+          "subject": "ENGLISH"
+        },
+        {
+          "kind": "pattern",
+          "subject": "SP&M S"
+        }
       ]
     },
     {
@@ -25,8 +31,16 @@
       "feeSubjectHint": "MATH",
       "citationId": "mo-core42",
       "accepts": [
-        { "kind": "pattern", "subject": "MATH", "minLevel": 1110 },
-        { "kind": "pattern", "subject": "STAT", "minLevel": 1115 }
+        {
+          "kind": "pattern",
+          "subject": "MATH",
+          "minLevel": 1110
+        },
+        {
+          "kind": "pattern",
+          "subject": "STAT",
+          "minLevel": 1115
+        }
       ]
     },
     {
@@ -38,10 +52,22 @@
       "feeSubjectHint": "CHEM",
       "citationId": "mo-core42",
       "accepts": [
-        { "kind": "pattern", "subject": "BIO SCI" },
-        { "kind": "pattern", "subject": "CHEM" },
-        { "kind": "pattern", "subject": "PHYSICS" },
-        { "kind": "pattern", "subject": "GEOLOGY" }
+        {
+          "kind": "pattern",
+          "subject": "BIO SCI"
+        },
+        {
+          "kind": "pattern",
+          "subject": "CHEM"
+        },
+        {
+          "kind": "pattern",
+          "subject": "PHYSICS"
+        },
+        {
+          "kind": "pattern",
+          "subject": "GEOLOGY"
+        }
       ]
     },
     {
@@ -52,12 +78,30 @@
       "priority": 30,
       "citationId": "mo-core42",
       "accepts": [
-        { "kind": "pattern", "subject": "ART" },
-        { "kind": "pattern", "subject": "ENGLISH" },
-        { "kind": "pattern", "subject": "HISTORY" },
-        { "kind": "pattern", "subject": "MUSIC" },
-        { "kind": "pattern", "subject": "PHILOS" },
-        { "kind": "pattern", "subject": "THEATRE" }
+        {
+          "kind": "pattern",
+          "subject": "ART"
+        },
+        {
+          "kind": "pattern",
+          "subject": "ENGLISH"
+        },
+        {
+          "kind": "pattern",
+          "subject": "HISTORY"
+        },
+        {
+          "kind": "pattern",
+          "subject": "MUSIC"
+        },
+        {
+          "kind": "pattern",
+          "subject": "PHILOS"
+        },
+        {
+          "kind": "pattern",
+          "subject": "THEATRE"
+        }
       ]
     },
     {
@@ -68,10 +112,18 @@
       "priority": 30,
       "citationId": "mo-core42",
       "accepts": [
-        { "kind": "pattern", "subject": "ECON" },
-        { "kind": "pattern", "subject": "POL SCI" },
-        { "kind": "pattern", "subject": "PSYCH" },
-        { "kind": "pattern", "subject": "SOC" }
+        {
+          "kind": "pattern",
+          "subject": "ECON"
+        },
+        {
+          "kind": "pattern",
+          "subject": "POL SCI"
+        },
+        {
+          "kind": "pattern",
+          "subject": "PSYCH"
+        }
       ]
     },
     {
@@ -82,20 +134,58 @@
       "priority": 30,
       "citationId": "mo-core42",
       "accepts": [
-        { "kind": "pattern", "subject": "ART" },
-        { "kind": "pattern", "subject": "BIO SCI" },
-        { "kind": "pattern", "subject": "CHEM" },
-        { "kind": "pattern", "subject": "ECON" },
-        { "kind": "pattern", "subject": "ENGLISH" },
-        { "kind": "pattern", "subject": "HISTORY" },
-        { "kind": "pattern", "subject": "MATH" },
-        { "kind": "pattern", "subject": "MUSIC" },
-        { "kind": "pattern", "subject": "PHILOS" },
-        { "kind": "pattern", "subject": "PHYSICS" },
-        { "kind": "pattern", "subject": "POL SCI" },
-        { "kind": "pattern", "subject": "PSYCH" },
-        { "kind": "pattern", "subject": "SOC" },
-        { "kind": "pattern", "subject": "THEATRE" }
+        {
+          "kind": "pattern",
+          "subject": "ART"
+        },
+        {
+          "kind": "pattern",
+          "subject": "BIO SCI"
+        },
+        {
+          "kind": "pattern",
+          "subject": "CHEM"
+        },
+        {
+          "kind": "pattern",
+          "subject": "ECON"
+        },
+        {
+          "kind": "pattern",
+          "subject": "ENGLISH"
+        },
+        {
+          "kind": "pattern",
+          "subject": "HISTORY"
+        },
+        {
+          "kind": "pattern",
+          "subject": "MATH"
+        },
+        {
+          "kind": "pattern",
+          "subject": "MUSIC"
+        },
+        {
+          "kind": "pattern",
+          "subject": "PHILOS"
+        },
+        {
+          "kind": "pattern",
+          "subject": "PHYSICS"
+        },
+        {
+          "kind": "pattern",
+          "subject": "POL SCI"
+        },
+        {
+          "kind": "pattern",
+          "subject": "PSYCH"
+        },
+        {
+          "kind": "pattern",
+          "subject": "THEATRE"
+        }
       ]
     }
   ]

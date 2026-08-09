@@ -10,7 +10,6 @@
   "catalogUrl": "https://catalog.mst.edu/undergraduate/degreeprogramsandcourses/mechanicalengineering/",
   "citationId": "mst-program-mech-eng",
   "asOf": "2026-08-09",
-
   "prereqDepth": {
     "CHEM 1305": 0,
     "CHEM 1319": 0,
@@ -42,7 +41,6 @@
     "MECH ENG 4480": 7,
     "MECH ENG 4761": 7
   },
-
   "blocks": [
     {
       "id": "me-mech-eng-core",
@@ -54,26 +52,160 @@
         {
           "id": "me-1720",
           "label": "MECH ENG 1720",
-          "ref": { "kind": "course", "code": "MECH ENG 1720" },
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 1720"
+          },
           "credits": 3,
           "note": "Catalog: \"An average of at least two grade points per credit hour must be attained in all courses taken in mechanical engineering.\" That is a departmental grade-point average, not a per-course floor, so no minGrade is set on the mechanical engineering core block."
         },
-        { "id": "me-1761", "label": "MECH ENG 1761", "ref": { "kind": "course", "code": "MECH ENG 1761" }, "credits": 1 },
-        { "id": "me-2360", "label": "MECH ENG 2360", "ref": { "kind": "course", "code": "MECH ENG 2360" }, "credits": 3, "minGrade": "C" },
-        { "id": "me-2519", "label": "MECH ENG 2519", "ref": { "kind": "course", "code": "MECH ENG 2519" }, "credits": 3, "minGrade": "C" },
-        { "id": "me-2653", "label": "MECH ENG 2653", "ref": { "kind": "course", "code": "MECH ENG 2653" }, "credits": 3 },
-        { "id": "me-2761", "label": "MECH ENG 2761", "ref": { "kind": "course", "code": "MECH ENG 2761" }, "credits": 2 },
-        { "id": "me-3131", "label": "MECH ENG 3131", "ref": { "kind": "course", "code": "MECH ENG 3131" }, "credits": 3 },
-        { "id": "me-3313", "label": "MECH ENG 3313", "ref": { "kind": "course", "code": "MECH ENG 3313" }, "credits": 3 },
-        { "id": "me-3411", "label": "MECH ENG 3411", "ref": { "kind": "course", "code": "MECH ENG 3411" }, "credits": 3, "minGrade": "C" },
-        { "id": "me-3521", "label": "MECH ENG 3521", "ref": { "kind": "course", "code": "MECH ENG 3521" }, "credits": 3 },
-        { "id": "me-3525", "label": "MECH ENG 3525", "ref": { "kind": "course", "code": "MECH ENG 3525" }, "credits": 3 },
-        { "id": "me-3708", "label": "MECH ENG 3708", "ref": { "kind": "course", "code": "MECH ENG 3708" }, "credits": 3 },
-        { "id": "me-4479", "label": "MECH ENG 4479", "ref": { "kind": "course", "code": "MECH ENG 4479" }, "credits": 3 },
-        { "id": "me-4480", "label": "MECH ENG 4480", "ref": { "kind": "course", "code": "MECH ENG 4480" }, "credits": 1 },
-        { "id": "me-4761", "label": "MECH ENG 4761", "ref": { "kind": "course", "code": "MECH ENG 4761" }, "credits": 3 },
-        { "id": "me-4840", "label": "MECH ENG 4840", "ref": { "kind": "course", "code": "MECH ENG 4840" }, "credits": 2 },
-        { "id": "me-4842", "label": "MECH ENG 4842", "ref": { "kind": "course", "code": "MECH ENG 4842" }, "credits": 2 }
+        {
+          "id": "me-1761",
+          "label": "MECH ENG 1761",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 1761"
+          },
+          "credits": 1
+        },
+        {
+          "id": "me-2360",
+          "label": "MECH ENG 2360",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 2360"
+          },
+          "credits": 3,
+          "minGrade": "C"
+        },
+        {
+          "id": "me-2519",
+          "label": "MECH ENG 2519",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 2519"
+          },
+          "credits": 3,
+          "minGrade": "C"
+        },
+        {
+          "id": "me-2653",
+          "label": "MECH ENG 2653",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 2653"
+          },
+          "credits": 3
+        },
+        {
+          "id": "me-2761",
+          "label": "MECH ENG 2761",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 2761"
+          },
+          "credits": 2
+        },
+        {
+          "id": "me-3131",
+          "label": "MECH ENG 3131",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 3131"
+          },
+          "credits": 3
+        },
+        {
+          "id": "me-3313",
+          "label": "MECH ENG 3313",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 3313"
+          },
+          "credits": 3
+        },
+        {
+          "id": "me-3411",
+          "label": "MECH ENG 3411",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 3411"
+          },
+          "credits": 3,
+          "minGrade": "C"
+        },
+        {
+          "id": "me-3521",
+          "label": "MECH ENG 3521",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 3521"
+          },
+          "credits": 3
+        },
+        {
+          "id": "me-3525",
+          "label": "MECH ENG 3525",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 3525"
+          },
+          "credits": 3
+        },
+        {
+          "id": "me-3708",
+          "label": "MECH ENG 3708",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 3708"
+          },
+          "credits": 3
+        },
+        {
+          "id": "me-4479",
+          "label": "MECH ENG 4479",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 4479"
+          },
+          "credits": 3
+        },
+        {
+          "id": "me-4480",
+          "label": "MECH ENG 4480",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 4480"
+          },
+          "credits": 1
+        },
+        {
+          "id": "me-4761",
+          "label": "MECH ENG 4761",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 4761"
+          },
+          "credits": 3
+        },
+        {
+          "id": "me-4840",
+          "label": "MECH ENG 4840",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 4840"
+          },
+          "credits": 2
+        },
+        {
+          "id": "me-4842",
+          "label": "MECH ENG 4842",
+          "ref": {
+            "kind": "course",
+            "code": "MECH ENG 4842"
+          },
+          "credits": 2
+        }
       ]
     },
     {
@@ -83,20 +215,88 @@
       "priority": 10,
       "citationId": "mst-program-mech-eng",
       "requirements": [
-        { "id": "me-chem-1305", "label": "CHEM 1305", "ref": { "kind": "course", "code": "CHEM 1305" }, "credits": 4, "minGrade": "C" },
-        { "id": "me-chem-1319", "label": "CHEM 1319", "ref": { "kind": "course", "code": "CHEM 1319" }, "credits": 1 },
         {
-          "id": "me-calc-1",
-          "label": "MATH 1214 or 1211",
-          "ref": { "kind": "anyOf", "codes": ["MATH 1214", "MATH 1211"] },
+          "id": "me-chem-1305",
+          "label": "CHEM 1305",
+          "ref": {
+            "kind": "course",
+            "code": "CHEM 1305"
+          },
           "credits": 4,
           "minGrade": "C"
         },
-        { "id": "me-calc-2", "label": "MATH 1215", "ref": { "kind": "course", "code": "MATH 1215" }, "credits": 4, "minGrade": "C" },
-        { "id": "me-calc-3", "label": "MATH 2222", "ref": { "kind": "course", "code": "MATH 2222" }, "credits": 4, "minGrade": "C" },
-        { "id": "me-diffeq", "label": "MATH 3304", "ref": { "kind": "course", "code": "MATH 3304" }, "credits": 3, "minGrade": "C" },
-        { "id": "me-physics-1135", "label": "PHYSICS 1135", "ref": { "kind": "course", "code": "PHYSICS 1135" }, "credits": 4, "minGrade": "C" },
-        { "id": "me-physics-2135", "label": "PHYSICS 2135", "ref": { "kind": "course", "code": "PHYSICS 2135" }, "credits": 4, "minGrade": "C" }
+        {
+          "id": "me-chem-1319",
+          "label": "CHEM 1319",
+          "ref": {
+            "kind": "course",
+            "code": "CHEM 1319"
+          },
+          "credits": 1
+        },
+        {
+          "id": "me-calc-1",
+          "label": "MATH 1214 or 1211",
+          "ref": {
+            "kind": "anyOf",
+            "codes": [
+              "MATH 1214",
+              "MATH 1211"
+            ]
+          },
+          "credits": 4,
+          "minGrade": "C"
+        },
+        {
+          "id": "me-calc-2",
+          "label": "MATH 1215",
+          "ref": {
+            "kind": "course",
+            "code": "MATH 1215"
+          },
+          "credits": 4,
+          "minGrade": "C"
+        },
+        {
+          "id": "me-calc-3",
+          "label": "MATH 2222",
+          "ref": {
+            "kind": "course",
+            "code": "MATH 2222"
+          },
+          "credits": 4,
+          "minGrade": "C"
+        },
+        {
+          "id": "me-diffeq",
+          "label": "MATH 3304",
+          "ref": {
+            "kind": "course",
+            "code": "MATH 3304"
+          },
+          "credits": 3,
+          "minGrade": "C"
+        },
+        {
+          "id": "me-physics-1135",
+          "label": "PHYSICS 1135",
+          "ref": {
+            "kind": "course",
+            "code": "PHYSICS 1135"
+          },
+          "credits": 4,
+          "minGrade": "C"
+        },
+        {
+          "id": "me-physics-2135",
+          "label": "PHYSICS 2135",
+          "ref": {
+            "kind": "course",
+            "code": "PHYSICS 2135"
+          },
+          "credits": 4,
+          "minGrade": "C"
+        }
       ]
     },
     {
@@ -106,14 +306,81 @@
       "priority": 10,
       "citationId": "mst-program-mech-eng",
       "requirements": [
-        { "id": "me-fr-eng-1100", "label": "FR ENG 1100", "ref": { "kind": "course", "code": "FR ENG 1100" }, "credits": 1 },
-        { "id": "me-civ-eng-2200", "label": "CIV ENG 2200", "ref": { "kind": "course", "code": "CIV ENG 2200" }, "credits": 3, "minGrade": "C" },
-        { "id": "me-civ-eng-2210", "label": "CIV ENG 2210", "ref": { "kind": "course", "code": "CIV ENG 2210" }, "credits": 3, "minGrade": "C" },
-        { "id": "me-civ-eng-2211", "label": "CIV ENG 2211", "ref": { "kind": "course", "code": "CIV ENG 2211" }, "credits": 1 },
-        { "id": "me-elec-eng-2800", "label": "ELEC ENG 2800", "ref": { "kind": "course", "code": "ELEC ENG 2800" }, "credits": 3 },
-        { "id": "me-met-eng-2110", "label": "MET ENG 2110", "ref": { "kind": "course", "code": "MET ENG 2110" }, "credits": 3, "minGrade": "C" },
-        { "id": "me-eng-mgt-1100", "label": "ENG MGT 1100", "ref": { "kind": "course", "code": "ENG MGT 1100" }, "credits": 1 },
-        { "id": "me-eng-mgt-1210", "label": "ENG MGT 1210", "ref": { "kind": "course", "code": "ENG MGT 1210" }, "credits": 2 }
+        {
+          "id": "me-fr-eng-1100",
+          "label": "FR ENG 1100",
+          "ref": {
+            "kind": "course",
+            "code": "FR ENG 1100"
+          },
+          "credits": 1
+        },
+        {
+          "id": "me-civ-eng-2200",
+          "label": "CIV ENG 2200",
+          "ref": {
+            "kind": "course",
+            "code": "CIV ENG 2200"
+          },
+          "credits": 3,
+          "minGrade": "C"
+        },
+        {
+          "id": "me-civ-eng-2210",
+          "label": "CIV ENG 2210",
+          "ref": {
+            "kind": "course",
+            "code": "CIV ENG 2210"
+          },
+          "credits": 3,
+          "minGrade": "C"
+        },
+        {
+          "id": "me-civ-eng-2211",
+          "label": "CIV ENG 2211",
+          "ref": {
+            "kind": "course",
+            "code": "CIV ENG 2211"
+          },
+          "credits": 1
+        },
+        {
+          "id": "me-elec-eng-2800",
+          "label": "ELEC ENG 2800",
+          "ref": {
+            "kind": "course",
+            "code": "ELEC ENG 2800"
+          },
+          "credits": 3
+        },
+        {
+          "id": "me-met-eng-2110",
+          "label": "MET ENG 2110",
+          "ref": {
+            "kind": "course",
+            "code": "MET ENG 2110"
+          },
+          "credits": 3,
+          "minGrade": "C"
+        },
+        {
+          "id": "me-eng-mgt-1100",
+          "label": "ENG MGT 1100",
+          "ref": {
+            "kind": "course",
+            "code": "ENG MGT 1100"
+          },
+          "credits": 1
+        },
+        {
+          "id": "me-eng-mgt-1210",
+          "label": "ENG MGT 1210",
+          "ref": {
+            "kind": "course",
+            "code": "ENG MGT 1210"
+          },
+          "credits": 2
+        }
       ]
     },
     {
@@ -124,17 +391,40 @@
       "isGenEd": true,
       "citationId": "mst-program-mech-eng",
       "requirements": [
-        { "id": "me-english-1120", "label": "ENGLISH 1120", "ref": { "kind": "course", "code": "ENGLISH 1120" }, "credits": 3 },
+        {
+          "id": "me-english-1120",
+          "label": "ENGLISH 1120",
+          "ref": {
+            "kind": "course",
+            "code": "ENGLISH 1120"
+          },
+          "credits": 3
+        },
         {
           "id": "me-history-polsci",
           "label": "HISTORY 1200, or 1300, or 1310, or POL SCI 1200",
-          "ref": { "kind": "anyOf", "codes": ["HISTORY 1200", "HISTORY 1300", "HISTORY 1310", "POL SCI 1200"] },
+          "ref": {
+            "kind": "anyOf",
+            "codes": [
+              "HISTORY 1200",
+              "HISTORY 1300",
+              "HISTORY 1310",
+              "POL SCI 1200"
+            ]
+          },
           "credits": 3
         },
         {
           "id": "me-communication",
           "label": "ENGLISH 1160, or 3560, or SP&M S 1185",
-          "ref": { "kind": "anyOf", "codes": ["ENGLISH 1160", "ENGLISH 3560", "SP&M S 1185"] },
+          "ref": {
+            "kind": "anyOf",
+            "codes": [
+              "ENGLISH 1160",
+              "ENGLISH 3560",
+              "SP&M S 1185"
+            ]
+          },
           "credits": 3
         }
       ]
@@ -148,16 +438,42 @@
       "isGenEd": true,
       "citationId": "mst-program-mech-eng",
       "accepts": [
-        { "kind": "pattern", "subject": "ART" },
-        { "kind": "pattern", "subject": "ECON" },
-        { "kind": "pattern", "subject": "ENGLISH" },
-        { "kind": "pattern", "subject": "HISTORY" },
-        { "kind": "pattern", "subject": "MUSIC" },
-        { "kind": "pattern", "subject": "PHILOS" },
-        { "kind": "pattern", "subject": "POL SCI" },
-        { "kind": "pattern", "subject": "PSYCH" },
-        { "kind": "pattern", "subject": "SOC" },
-        { "kind": "pattern", "subject": "THEATRE" }
+        {
+          "kind": "pattern",
+          "subject": "ART"
+        },
+        {
+          "kind": "pattern",
+          "subject": "ECON"
+        },
+        {
+          "kind": "pattern",
+          "subject": "ENGLISH"
+        },
+        {
+          "kind": "pattern",
+          "subject": "HISTORY"
+        },
+        {
+          "kind": "pattern",
+          "subject": "MUSIC"
+        },
+        {
+          "kind": "pattern",
+          "subject": "PHILOS"
+        },
+        {
+          "kind": "pattern",
+          "subject": "POL SCI"
+        },
+        {
+          "kind": "pattern",
+          "subject": "PSYCH"
+        },
+        {
+          "kind": "pattern",
+          "subject": "THEATRE"
+        }
       ]
     },
     {
@@ -170,14 +486,38 @@
       "feeSubjectHint": "COMP SCI",
       "citationId": "mst-program-mech-eng",
       "accepts": [
-        { "kind": "course", "code": "COMP SCI 1970" },
-        { "kind": "course", "code": "COMP SCI 1980" },
-        { "kind": "course", "code": "COMP SCI 1971" },
-        { "kind": "course", "code": "COMP SCI 1981" },
-        { "kind": "course", "code": "COMP SCI 1972" },
-        { "kind": "course", "code": "COMP SCI 1982" },
-        { "kind": "course", "code": "COMP SCI 1570" },
-        { "kind": "course", "code": "COMP SCI 1580" }
+        {
+          "kind": "course",
+          "code": "COMP SCI 1970"
+        },
+        {
+          "kind": "course",
+          "code": "COMP SCI 1980"
+        },
+        {
+          "kind": "course",
+          "code": "COMP SCI 1971"
+        },
+        {
+          "kind": "course",
+          "code": "COMP SCI 1981"
+        },
+        {
+          "kind": "course",
+          "code": "COMP SCI 1972"
+        },
+        {
+          "kind": "course",
+          "code": "COMP SCI 1982"
+        },
+        {
+          "kind": "course",
+          "code": "COMP SCI 1570"
+        },
+        {
+          "kind": "course",
+          "code": "COMP SCI 1580"
+        }
       ]
     },
     {
@@ -189,10 +529,24 @@
       "feeSubjectHint": "MATH",
       "citationId": "mst-program-mech-eng",
       "accepts": [
-        { "kind": "course", "code": "MATH 3108" },
-        { "kind": "course", "code": "STAT 3113" },
-        { "kind": "pattern", "subject": "MATH", "minLevel": 5000 },
-        { "kind": "pattern", "subject": "STAT", "minLevel": 5000 }
+        {
+          "kind": "course",
+          "code": "MATH 3108"
+        },
+        {
+          "kind": "course",
+          "code": "STAT 3113"
+        },
+        {
+          "kind": "pattern",
+          "subject": "MATH",
+          "minLevel": 5000
+        },
+        {
+          "kind": "pattern",
+          "subject": "STAT",
+          "minLevel": 5000
+        }
       ]
     },
     {
@@ -208,13 +562,23 @@
           "kind": "pattern",
           "subject": "MECH ENG",
           "minLevel": 3000,
-          "exclude": ["MECH ENG 3002", "MECH ENG 4000", "MECH ENG 4099"]
+          "exclude": [
+            "MECH ENG 3002",
+            "MECH ENG 4000",
+            "MECH ENG 4099",
+            "MECH ENG 5000"
+          ]
         },
         {
           "kind": "pattern",
           "subject": "AERO ENG",
           "minLevel": 3000,
-          "exclude": ["AERO ENG 3002", "AERO ENG 4000", "AERO ENG 4099"]
+          "exclude": [
+            "AERO ENG 3002",
+            "AERO ENG 4000",
+            "AERO ENG 4099",
+            "AERO ENG 5000"
+          ]
         }
       ]
     },
@@ -227,8 +591,28 @@
       "feeSubjectHint": "MECH ENG",
       "citationId": "mst-program-mech-eng",
       "accepts": [
-        { "kind": "pattern", "subject": "MECH ENG", "minLevel": 5000 },
-        { "kind": "pattern", "subject": "AERO ENG", "minLevel": 5000 }
+        {
+          "kind": "pattern",
+          "subject": "MECH ENG",
+          "minLevel": 5000,
+          "exclude": [
+            "MECH ENG 3002",
+            "MECH ENG 4000",
+            "MECH ENG 4099",
+            "MECH ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "AERO ENG",
+          "minLevel": 5000,
+          "exclude": [
+            "AERO ENG 3002",
+            "AERO ENG 4000",
+            "AERO ENG 4099",
+            "AERO ENG 5000"
+          ]
+        }
       ]
     },
     {
@@ -239,23 +623,193 @@
       "minCredits": 3,
       "citationId": "mst-program-mech-eng",
       "accepts": [
-        { "kind": "pattern", "subject": "MATH", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "STAT", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "BIO SCI", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "CHEM", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "GEOLOGY", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "PHYSICS", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "COMP SCI", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "AERO ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "CHEM ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "CIV ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "COMP ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "ELEC ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "ENG MGT", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "ENV ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "MECH ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "MET ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "NUC ENG", "minLevel": 3000 }
+        {
+          "kind": "pattern",
+          "subject": "MATH",
+          "minLevel": 3000,
+          "exclude": [
+            "MATH 3002",
+            "MATH 4000",
+            "MATH 4099",
+            "MATH 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "STAT",
+          "minLevel": 3000,
+          "exclude": [
+            "STAT 3002",
+            "STAT 4000",
+            "STAT 4099",
+            "STAT 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "BIO SCI",
+          "minLevel": 3000,
+          "exclude": [
+            "BIO SCI 3002",
+            "BIO SCI 4000",
+            "BIO SCI 4099",
+            "BIO SCI 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "CHEM",
+          "minLevel": 3000,
+          "exclude": [
+            "CHEM 3002",
+            "CHEM 4000",
+            "CHEM 4099",
+            "CHEM 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "GEOLOGY",
+          "minLevel": 3000,
+          "exclude": [
+            "GEOLOGY 3002",
+            "GEOLOGY 4000",
+            "GEOLOGY 4099",
+            "GEOLOGY 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "PHYSICS",
+          "minLevel": 3000,
+          "exclude": [
+            "PHYSICS 3002",
+            "PHYSICS 4000",
+            "PHYSICS 4099",
+            "PHYSICS 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "COMP SCI",
+          "minLevel": 3000,
+          "exclude": [
+            "COMP SCI 3002",
+            "COMP SCI 4000",
+            "COMP SCI 4099",
+            "COMP SCI 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "AERO ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "AERO ENG 3002",
+            "AERO ENG 4000",
+            "AERO ENG 4099",
+            "AERO ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "CHEM ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "CHEM ENG 3002",
+            "CHEM ENG 4000",
+            "CHEM ENG 4099",
+            "CHEM ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "CIV ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "CIV ENG 3002",
+            "CIV ENG 4000",
+            "CIV ENG 4099",
+            "CIV ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "COMP ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "COMP ENG 3002",
+            "COMP ENG 4000",
+            "COMP ENG 4099",
+            "COMP ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "ELEC ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "ELEC ENG 3002",
+            "ELEC ENG 4000",
+            "ELEC ENG 4099",
+            "ELEC ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "ENG MGT",
+          "minLevel": 3000,
+          "exclude": [
+            "ENG MGT 3002",
+            "ENG MGT 4000",
+            "ENG MGT 4099",
+            "ENG MGT 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "ENV ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "ENV ENG 3002",
+            "ENV ENG 4000",
+            "ENV ENG 4099",
+            "ENV ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "MECH ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "MECH ENG 3002",
+            "MECH ENG 4000",
+            "MECH ENG 4099",
+            "MECH ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "MET ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "MET ENG 3002",
+            "MET ENG 4000",
+            "MET ENG 4099",
+            "MET ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "NUC ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "NUC ENG 3002",
+            "NUC ENG 4000",
+            "NUC ENG 4099",
+            "NUC ENG 5000"
+          ]
+        }
       ]
     },
     {
@@ -266,28 +820,248 @@
       "minCredits": 3,
       "citationId": "mst-program-mech-eng",
       "accepts": [
-        { "kind": "pattern", "subject": "MATH", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "STAT", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "BIO SCI", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "CHEM", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "GEOLOGY", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "PHYSICS", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "COMP SCI", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "AERO ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "CHEM ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "CIV ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "COMP ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "ELEC ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "ENG MGT", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "ENV ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "MECH ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "MET ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "NUC ENG", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "BUS", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "FINANCE", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "MKT", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "ERP", "minLevel": 3000 },
-        { "kind": "pattern", "subject": "IS&T", "minLevel": 3000 }
+        {
+          "kind": "pattern",
+          "subject": "MATH",
+          "minLevel": 3000,
+          "exclude": [
+            "MATH 3002",
+            "MATH 4000",
+            "MATH 4099",
+            "MATH 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "STAT",
+          "minLevel": 3000,
+          "exclude": [
+            "STAT 3002",
+            "STAT 4000",
+            "STAT 4099",
+            "STAT 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "BIO SCI",
+          "minLevel": 3000,
+          "exclude": [
+            "BIO SCI 3002",
+            "BIO SCI 4000",
+            "BIO SCI 4099",
+            "BIO SCI 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "CHEM",
+          "minLevel": 3000,
+          "exclude": [
+            "CHEM 3002",
+            "CHEM 4000",
+            "CHEM 4099",
+            "CHEM 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "GEOLOGY",
+          "minLevel": 3000,
+          "exclude": [
+            "GEOLOGY 3002",
+            "GEOLOGY 4000",
+            "GEOLOGY 4099",
+            "GEOLOGY 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "PHYSICS",
+          "minLevel": 3000,
+          "exclude": [
+            "PHYSICS 3002",
+            "PHYSICS 4000",
+            "PHYSICS 4099",
+            "PHYSICS 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "COMP SCI",
+          "minLevel": 3000,
+          "exclude": [
+            "COMP SCI 3002",
+            "COMP SCI 4000",
+            "COMP SCI 4099",
+            "COMP SCI 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "AERO ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "AERO ENG 3002",
+            "AERO ENG 4000",
+            "AERO ENG 4099",
+            "AERO ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "CHEM ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "CHEM ENG 3002",
+            "CHEM ENG 4000",
+            "CHEM ENG 4099",
+            "CHEM ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "CIV ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "CIV ENG 3002",
+            "CIV ENG 4000",
+            "CIV ENG 4099",
+            "CIV ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "COMP ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "COMP ENG 3002",
+            "COMP ENG 4000",
+            "COMP ENG 4099",
+            "COMP ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "ELEC ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "ELEC ENG 3002",
+            "ELEC ENG 4000",
+            "ELEC ENG 4099",
+            "ELEC ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "ENG MGT",
+          "minLevel": 3000,
+          "exclude": [
+            "ENG MGT 3002",
+            "ENG MGT 4000",
+            "ENG MGT 4099",
+            "ENG MGT 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "ENV ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "ENV ENG 3002",
+            "ENV ENG 4000",
+            "ENV ENG 4099",
+            "ENV ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "MECH ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "MECH ENG 3002",
+            "MECH ENG 4000",
+            "MECH ENG 4099",
+            "MECH ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "MET ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "MET ENG 3002",
+            "MET ENG 4000",
+            "MET ENG 4099",
+            "MET ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "NUC ENG",
+          "minLevel": 3000,
+          "exclude": [
+            "NUC ENG 3002",
+            "NUC ENG 4000",
+            "NUC ENG 4099",
+            "NUC ENG 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "BUS",
+          "minLevel": 3000,
+          "exclude": [
+            "BUS 3002",
+            "BUS 4000",
+            "BUS 4099",
+            "BUS 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "FINANCE",
+          "minLevel": 3000,
+          "exclude": [
+            "FINANCE 3002",
+            "FINANCE 4000",
+            "FINANCE 4099",
+            "FINANCE 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "MKT",
+          "minLevel": 3000,
+          "exclude": [
+            "MKT 3002",
+            "MKT 4000",
+            "MKT 4099",
+            "MKT 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "ERP",
+          "minLevel": 3000,
+          "exclude": [
+            "ERP 3002",
+            "ERP 4000",
+            "ERP 4099",
+            "ERP 5000"
+          ]
+        },
+        {
+          "kind": "pattern",
+          "subject": "IS&T",
+          "minLevel": 3000,
+          "exclude": [
+            "IS&T 3002",
+            "IS&T 4000",
+            "IS&T 4099",
+            "IS&T 5000"
+          ]
+        }
       ]
     },
     {

@@ -279,6 +279,7 @@ export const schoolSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
   ipedsId: z.string().min(1),
+  subjects: z.array(z.string().min(1)).min(1),
   tuition: tuitionModelSchema,
   fees: feeScheduleSchema,
   sap: sapPolicySchema,
