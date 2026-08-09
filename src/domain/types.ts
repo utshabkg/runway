@@ -174,6 +174,16 @@ export interface RequirementBlock {
   feeSubjectHint?: Subject
   /** Allocation order: core 10 · chooseN 20 · creditBucket 30 · freeElective 40. */
   priority: number
+  /**
+   * This block satisfies part of the program's general education framework.
+   *
+   * Tagging rather than summing is what lets the CORE 42 delta fall out of the
+   * allocation: when an engineering student's completed work is matched against
+   * a psychology program, the gen-ed buckets engineering never required simply
+   * come back unfilled, and the engine reports the shortfall it actually found
+   * instead of asserting a 42-minus-31 difference.
+   */
+  isGenEd?: boolean
   citationId?: string
 }
 
@@ -183,8 +193,13 @@ export interface RequirementBlock {
  * follow Core 42 due to their accreditation requirements" — so engineering
  * carries a 31-hour general education core while most other BS degrees carry
  * Missouri's 42-hour CORE 42. An engineering→psychology switch silently swaps
- * the entire framework. No what-if audit explains that; we surface it as a
- * named block with its own credit delta.
+ * the entire framework, and no what-if audit explains why.
+ *
+ * REFERENCE DATA, NOT ADDITIVE. A program's published plan of study already
+ * contains its general education courses, so these blocks are never summed
+ * into a program's total — doing so would double-count. The framework exists
+ * to name which system a program follows, to carry its citation, and to let
+ * the explanation layer say *why* the shortfall appeared.
  */
 export interface GenEdFramework {
   id: string

@@ -3,7 +3,6 @@
   "name": "Missouri University of Science and Technology",
   "ipedsId": "178411",
   "asOf": "2026-08-08",
-
   "tuition": {
     "defaultRateId": "rate-3",
     "citationId": "mst-fee-schedule-2026-27",
@@ -13,47 +12,91 @@
         "label": "Rate 1",
         "perCreditInState": 62100,
         "perCreditOutOfState": 145200,
-        "plateau": { "minCredits": 12, "maxCredits": 18, "flatInState": 745100, "flatOutOfState": 1742200 },
+        "plateau": {
+          "minCredits": 12,
+          "maxCredits": 18,
+          "flatInState": 745100,
+          "flatOutOfState": 1742200
+        },
         "overPlateauChargesPerCredit": true,
-        "programIds": ["mst-psychology", "mst-multidisciplinary-studies"]
+        "programIds": [
+          "mst-psychology",
+          "mst-multidisciplinary-studies"
+        ]
       },
       "rate-2": {
         "id": "rate-2",
         "label": "Rate 2",
         "perCreditInState": 71700,
         "perCreditOutOfState": 154800,
-        "plateau": { "minCredits": 12, "maxCredits": 18, "flatInState": 859900, "flatOutOfState": 1857000 },
+        "plateau": {
+          "minCredits": 12,
+          "maxCredits": 18,
+          "flatInState": 859900,
+          "flatOutOfState": 1857000
+        },
         "overPlateauChargesPerCredit": true,
-        "programIds": ["mst-biological-sciences", "mst-business-mgmt-systems", "mst-information-science-technology"]
+        "programIds": [
+          "mst-biological-sciences",
+          "mst-business-mgmt-systems",
+          "mst-information-science-technology"
+        ]
       },
       "rate-3": {
         "id": "rate-3",
         "label": "Rate 3",
         "perCreditInState": 81200,
         "perCreditOutOfState": 164300,
-        "plateau": { "minCredits": 12, "maxCredits": 18, "flatInState": 974700, "flatOutOfState": 1971800 },
+        "plateau": {
+          "minCredits": 12,
+          "maxCredits": 18,
+          "flatInState": 974700,
+          "flatOutOfState": 1971800
+        },
         "overPlateauChargesPerCredit": true,
-        "programIds": ["mst-mechanical-engineering", "mst-computer-science", "mst-undeclared"]
+        "programIds": [
+          "mst-mechanical-engineering",
+          "mst-computer-science",
+          "mst-undeclared"
+        ]
       }
     }
   },
-
   "fees": {
     "perCreditFees": [
-      { "label": "Activity and facility fee", "amountPerCredit": 4200, "cappedAtCredits": 12 }
+      {
+        "label": "Activity and facility fee",
+        "amountPerCredit": 4200,
+        "cappedAtCredits": 12
+      }
     ],
-    "flatPerTerm": [{ "label": "Health service fee", "amount": 22359 }],
-    "oneTime": [{ "label": "Graduation application fee", "amount": 7500 }],
+    "flatPerTerm": [
+      {
+        "label": "Health service fee",
+        "amount": 22359
+      }
+    ],
+    "oneTime": [
+      {
+        "label": "Graduation application fee",
+        "amount": 7500
+      }
+    ],
     "citationId": "mst-fee-schedule-2026-27"
   },
-
   "sap": {
     "maxTimeframePct": 1.5,
     "denominator": "attempted",
     "pacePct": 0.75,
     "gpaTiers": [
-      { "minAttempted": 0, "requiredGpa": 1.67 },
-      { "minAttempted": 60, "requiredGpa": 2.0 }
+      {
+        "minAttempted": 0,
+        "requiredGpa": 1.67
+      },
+      {
+        "minAttempted": 60,
+        "requiredGpa": 2.0
+      }
     ],
     "appealAvailable": true,
     "appealWindowWeeks": 4,
@@ -61,19 +104,20 @@
     "majorChangePolicy": "unspecified",
     "citationId": "mst-sap"
   },
-
   "pell": {
     "lifetimeEligibilityPct": 600,
     "appealable": false,
     "citationId": "fsa-pell-leu"
   },
-
   "institutionalAid": [
     {
       "id": "mst-merit",
       "label": "Missouri S&T merit scholarship",
       "maxSemesters": 8,
-      "countsTerms": ["FS", "SP"],
+      "countsTerms": [
+        "FS",
+        "SP"
+      ],
       "requiresFullTime": true,
       "minCreditsForFullTime": 12,
       "frozenDuringCoop": true,
@@ -81,7 +125,6 @@
       "citationId": "mst-scholarship-renewal"
     }
   ],
-
   "stateAid": [
     {
       "id": "access-missouri",
@@ -97,9 +140,11 @@
       "citationId": "bright-flight"
     }
   ],
-
-  "gradRates": { "fourYear": 28.97, "sixYear": 64.37, "citationId": "scorecard-178411" },
-
+  "gradRates": {
+    "fourYear": 28.97,
+    "sixYear": 64.37,
+    "citationId": "scorecard-178411"
+  },
   "citations": {
     "mst-fee-schedule-2026-27": {
       "id": "mst-fee-schedule-2026-27",
@@ -179,6 +224,13 @@
       "url": "https://collegescorecard.ed.gov/school/?178411-Missouri-University-of-Science-and-Technology",
       "asOf": "2026-08-08",
       "note": "Completion within 100% of normal time 28.97%; within 150% 64.37%. Present as context only — S&T's four-to-six-year gap is substantially driven by its co-op culture and engineering course sequencing, not by major switching."
+    },
+    "mst-program-comp-sci": {
+      "id": "mst-program-comp-sci",
+      "label": "Missouri S&T Catalog 2026-2027 — Computer Science, B.S.",
+      "url": "https://catalog.mst.edu/undergraduate/degreeprogramsandcourses/computerscience/",
+      "asOf": "2026-08-09",
+      "note": "Transcribed from the published four-year plan of study. Term totals 16+17+16+16+15+15+16+16 reconcile to 127; the catalog states 127-128 because the Lecture-Laboratory Science Elective is 4-5 hours and this spec takes the 4-hour minimum, the conservative reading. Free elective capacity is 7 hours (3 in the senior fall, 4 in the senior spring). The program requires a grade of C or better in all Computer Science courses, in COMP ENG 2210, and in the ethics elective."
     }
   }
 }

@@ -88,6 +88,7 @@ export const requirementBlockSchema = z
     minGrade: gradeSchema.optional(),
     feeSubjectHint: z.string().optional(),
     priority: z.int(),
+    isGenEd: z.boolean().optional(),
     citationId: z.string().optional(),
   })
   // Each block kind carries a different payload; a block missing its payload
@@ -335,7 +336,10 @@ export function checkProgramIntegrity(
   const problems: IntegrityProblem[] = []
   const file = `${program.id}`
 
-  const authored = [...genEd.blocks, ...program.blocks].reduce((sum, b) => sum + blockCredits(b), 0)
+  // Program blocks alone must reconcile: the published plan of study already
+  // includes the program's general education courses, so adding the gen-ed
+  // framework's blocks on top would double-count them.
+  const authored = program.blocks.reduce((sum, b) => sum + blockCredits(b), 0)
   if (Math.abs(authored - program.totalCredits) > 0.5) {
     problems.push({
       file,
@@ -345,8 +349,17 @@ export function checkProgramIntegrity(
     })
   }
 
+  if (!program.blocks.some((b) => b.isGenEd)) {
+    problems.push({
+      file,
+      problem:
+        `no block is tagged isGenEd, so a switch into or out of this program cannot attribute ` +
+        `a general-education shortfall to the framework change that caused it.`,
+    })
+  }
+
   const ids = new Set<string>()
-  for (const b of [...genEd.blocks, ...program.blocks]) {
+  for (const b of program.blocks) {
     if (b.citationId) ids.add(b.citationId)
     for (const r of b.requirements ?? []) if (r.citationId) ids.add(r.citationId)
   }

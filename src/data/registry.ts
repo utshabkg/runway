@@ -13,6 +13,8 @@ import mstJson from './schools/mst.json'
 import mstGenEd31Json from './geneds/mst-gened31.json'
 import core42Json from './geneds/mo-core42.json'
 
+import mstComputerScienceJson from './programs/mst-computer-science.json'
+
 /**
  * On disk a school file carries no gen-ed frameworks; those live in their own
  * files so two schools in the same state can share CORE 42. The composed
@@ -53,8 +55,8 @@ export const schools: Record<string, School> = Object.fromEntries(
 
 // ── programs ───────────────────────────────────────────────────────────────
 
-/** Populated on Day 2 as the six S&T majors are transformed from the catalog. */
-const PROGRAM_FILES: readonly unknown[] = []
+/** Populated as each S&T major is transformed from the catalog. */
+const PROGRAM_FILES: readonly unknown[] = [mstComputerScienceJson]
 
 export const programs: Record<string, Program> = Object.fromEntries(
   PROGRAM_FILES.map((file) => {

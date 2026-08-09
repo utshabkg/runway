@@ -1,0 +1,233 @@
+{
+  "id": "mst-computer-science",
+  "schoolId": "mst",
+  "name": "Computer Science, B.S.",
+  "degree": "BS",
+  "totalCredits": 127,
+  "genEdFrameworkId": "mst-gened31",
+  "rateId": "rate-3",
+  "maxCreditsPerTerm": 18,
+  "catalogUrl": "https://catalog.mst.edu/undergraduate/degreeprogramsandcourses/computerscience/",
+  "citationId": "mst-program-comp-sci",
+  "asOf": "2026-08-09",
+
+  "prereqDepth": {
+    "COMP SCI 1500": 0,
+    "COMP SCI 1570": 1,
+    "COMP SCI 1575": 2,
+    "COMP SCI 1585": 2,
+    "COMP SCI 2200": 3,
+    "COMP SCI 2300": 3,
+    "COMP SCI 2500": 3,
+    "COMP SCI 2580": 3,
+    "COMP SCI 3100": 4,
+    "COMP SCI 3500": 5,
+    "COMP SCI 3610": 4,
+    "COMP SCI 3800": 4,
+    "COMP SCI 3803": 4,
+    "COMP SCI 4095": 6,
+    "COMP SCI 4096": 7,
+    "COMP SCI 4610": 5,
+    "MATH 1215": 1,
+    "MATH 3108": 2,
+    "COMP ENG 2210": 2
+  },
+
+  "blocks": [
+    {
+      "id": "cs-core",
+      "kind": "core",
+      "label": "Computer Science core",
+      "priority": 10,
+      "minGrade": "C",
+      "citationId": "mst-program-comp-sci",
+      "requirements": [
+        { "id": "cs-1010", "label": "COMP SCI 1010", "ref": { "kind": "course", "code": "COMP SCI 1010" }, "credits": 1 },
+        { "id": "cs-1200", "label": "COMP SCI 1200", "ref": { "kind": "course", "code": "COMP SCI 1200" }, "credits": 3 },
+        {
+          "id": "cs-1500",
+          "label": "COMP SCI 1500 Computational Problem Solving",
+          "ref": { "kind": "course", "code": "COMP SCI 1500" },
+          "credits": 3,
+          "note": "Waived for a score of 4 or 5 on the AP Computer Science A exam, with no additional credit hours required."
+        },
+        { "id": "cs-1570", "label": "COMP SCI 1570 Introduction To C++ Programming", "ref": { "kind": "course", "code": "COMP SCI 1570" }, "credits": 3 },
+        { "id": "cs-1575", "label": "COMP SCI 1575 Data Structures", "ref": { "kind": "course", "code": "COMP SCI 1575" }, "credits": 3 },
+        { "id": "cs-1580", "label": "COMP SCI 1580 Introduction To Programming Laboratory", "ref": { "kind": "course", "code": "COMP SCI 1580" }, "credits": 1 },
+        { "id": "cs-1585", "label": "COMP SCI 1585 Data Structures Laboratory", "ref": { "kind": "course", "code": "COMP SCI 1585" }, "credits": 1 },
+        { "id": "cs-2200", "label": "COMP SCI 2200", "ref": { "kind": "course", "code": "COMP SCI 2200" }, "credits": 3 },
+        { "id": "cs-2300", "label": "COMP SCI 2300", "ref": { "kind": "course", "code": "COMP SCI 2300" }, "credits": 3 },
+        { "id": "cs-2500", "label": "COMP SCI 2500", "ref": { "kind": "course", "code": "COMP SCI 2500" }, "credits": 3 },
+        { "id": "cs-2580", "label": "COMP SCI 2580", "ref": { "kind": "course", "code": "COMP SCI 2580" }, "credits": 1 },
+        { "id": "cs-3100", "label": "COMP SCI 3100", "ref": { "kind": "course", "code": "COMP SCI 3100" }, "credits": 3 },
+        { "id": "cs-3500", "label": "COMP SCI 3500", "ref": { "kind": "course", "code": "COMP SCI 3500" }, "credits": 3 },
+        { "id": "cs-3610", "label": "COMP SCI 3610", "ref": { "kind": "course", "code": "COMP SCI 3610" }, "credits": 3 },
+        { "id": "cs-3800", "label": "COMP SCI 3800", "ref": { "kind": "course", "code": "COMP SCI 3800" }, "credits": 3 },
+        { "id": "cs-3803", "label": "COMP SCI 3803", "ref": { "kind": "course", "code": "COMP SCI 3803" }, "credits": 3 },
+        { "id": "cs-4095", "label": "COMP SCI 4095", "ref": { "kind": "course", "code": "COMP SCI 4095" }, "credits": 1 },
+        { "id": "cs-4096", "label": "COMP SCI 4096", "ref": { "kind": "course", "code": "COMP SCI 4096" }, "credits": 3 },
+        { "id": "cs-4610", "label": "COMP SCI 4610", "ref": { "kind": "course", "code": "COMP SCI 4610" }, "credits": 3 }
+      ]
+    },
+    {
+      "id": "cs-supporting-core",
+      "kind": "core",
+      "label": "Supporting mathematics, computer engineering and first-year engineering",
+      "priority": 10,
+      "citationId": "mst-program-comp-sci",
+      "requirements": [
+        { "id": "cs-fr-eng-1100", "label": "FR ENG 1100 Study And Careers In Engineering and Computing", "ref": { "kind": "course", "code": "FR ENG 1100" }, "credits": 1 },
+        {
+          "id": "cs-comp-eng-2210",
+          "label": "COMP ENG 2210",
+          "ref": { "kind": "course", "code": "COMP ENG 2210" },
+          "credits": 3,
+          "minGrade": "C"
+        },
+        {
+          "id": "cs-calc-1",
+          "label": "MATH 1214 or MATH 1211 (Calculus I)",
+          "ref": { "kind": "anyOf", "codes": ["MATH 1214", "MATH 1211"] },
+          "credits": 4
+        },
+        { "id": "cs-calc-2", "label": "MATH 1215 (Calculus II)", "ref": { "kind": "course", "code": "MATH 1215" }, "credits": 4 },
+        { "id": "cs-math-3108", "label": "MATH 3108", "ref": { "kind": "course", "code": "MATH 3108" }, "credits": 3 }
+      ]
+    },
+    {
+      "id": "cs-gened-named",
+      "kind": "core",
+      "label": "General education courses named in the plan of study",
+      "priority": 10,
+      "isGenEd": true,
+      "citationId": "mst-program-comp-sci",
+      "requirements": [
+        { "id": "cs-english-1120", "label": "ENGLISH 1120", "ref": { "kind": "course", "code": "ENGLISH 1120" }, "credits": 3 },
+        {
+          "id": "cs-english-2",
+          "label": "ENGLISH 1160 or ENGLISH 3560",
+          "ref": { "kind": "anyOf", "codes": ["ENGLISH 1160", "ENGLISH 3560"] },
+          "credits": 3
+        },
+        {
+          "id": "cs-history-polsci",
+          "label": "HISTORY 1300, or 1310, or 1200, or POL SCI 1200",
+          "ref": { "kind": "anyOf", "codes": ["HISTORY 1300", "HISTORY 1310", "HISTORY 1200", "POL SCI 1200"] },
+          "credits": 3
+        },
+        { "id": "cs-spms-1185", "label": "SP&M S 1185", "ref": { "kind": "course", "code": "SP&M S 1185" }, "credits": 3 },
+        {
+          "id": "cs-ethics",
+          "label": "PHILOS 3225, or 3235, or 4340, or 4368 (Ethics Elective)",
+          "ref": { "kind": "anyOf", "codes": ["PHILOS 3225", "PHILOS 3235", "PHILOS 4340", "PHILOS 4368"] },
+          "credits": 3,
+          "minGrade": "C"
+        }
+      ]
+    },
+    {
+      "id": "cs-gened-elective",
+      "kind": "creditBucket",
+      "label": "General education electives",
+      "priority": 30,
+      "minCredits": 9,
+      "isGenEd": true,
+      "citationId": "mst-program-comp-sci",
+      "accepts": [
+        { "kind": "pattern", "subject": "ART" },
+        { "kind": "pattern", "subject": "ECON" },
+        { "kind": "pattern", "subject": "ENGLISH" },
+        { "kind": "pattern", "subject": "HISTORY" },
+        { "kind": "pattern", "subject": "MUSIC" },
+        { "kind": "pattern", "subject": "PHILOS" },
+        { "kind": "pattern", "subject": "POL SCI" },
+        { "kind": "pattern", "subject": "PSYCH" },
+        { "kind": "pattern", "subject": "SOC" },
+        { "kind": "pattern", "subject": "THEATRE" }
+      ]
+    },
+    {
+      "id": "cs-lab-science",
+      "kind": "creditBucket",
+      "label": "Lecture-Laboratory Science Elective",
+      "priority": 30,
+      "minCredits": 4,
+      "feeSubjectHint": "CHEM",
+      "citationId": "mst-program-comp-sci",
+      "accepts": [
+        { "kind": "pattern", "subject": "BIO SCI" },
+        { "kind": "pattern", "subject": "CHEM" },
+        { "kind": "pattern", "subject": "PHYSICS" },
+        { "kind": "pattern", "subject": "GEOLOGY" }
+      ]
+    },
+    {
+      "id": "cs-natural-science",
+      "kind": "creditBucket",
+      "label": "Natural Sciences Elective",
+      "priority": 30,
+      "minCredits": 3,
+      "feeSubjectHint": "CHEM",
+      "citationId": "mst-program-comp-sci",
+      "accepts": [
+        { "kind": "pattern", "subject": "BIO SCI" },
+        { "kind": "pattern", "subject": "CHEM" },
+        { "kind": "pattern", "subject": "PHYSICS" },
+        { "kind": "pattern", "subject": "GEOLOGY" }
+      ]
+    },
+    {
+      "id": "cs-statistics",
+      "kind": "creditBucket",
+      "label": "Statistics Elective",
+      "priority": 30,
+      "minCredits": 3,
+      "feeSubjectHint": "STAT",
+      "citationId": "mst-program-comp-sci",
+      "accepts": [{ "kind": "pattern", "subject": "STAT" }]
+    },
+    {
+      "id": "cs-sci-eng-elective",
+      "kind": "creditBucket",
+      "label": "Science/Engineering Electives",
+      "priority": 30,
+      "minCredits": 6,
+      "citationId": "mst-program-comp-sci",
+      "accepts": [
+        { "kind": "pattern", "subject": "BIO SCI" },
+        { "kind": "pattern", "subject": "CHEM" },
+        { "kind": "pattern", "subject": "PHYSICS" },
+        { "kind": "pattern", "subject": "GEOLOGY" },
+        { "kind": "pattern", "subject": "MATH" },
+        { "kind": "pattern", "subject": "STAT" },
+        { "kind": "pattern", "subject": "AERO ENG" },
+        { "kind": "pattern", "subject": "CHEM ENG" },
+        { "kind": "pattern", "subject": "CIV ENG" },
+        { "kind": "pattern", "subject": "COMP ENG" },
+        { "kind": "pattern", "subject": "ELEC ENG" },
+        { "kind": "pattern", "subject": "ENG MGT" },
+        { "kind": "pattern", "subject": "MECH ENG" },
+        { "kind": "pattern", "subject": "NUC ENG" }
+      ]
+    },
+    {
+      "id": "cs-cs-elective",
+      "kind": "creditBucket",
+      "label": "Computer Science Electives",
+      "priority": 30,
+      "minCredits": 18,
+      "minGrade": "C",
+      "feeSubjectHint": "COMP SCI",
+      "citationId": "mst-program-comp-sci",
+      "accepts": [{ "kind": "pattern", "subject": "COMP SCI", "minLevel": 2000 }]
+    },
+    {
+      "id": "cs-free-elective",
+      "kind": "freeElective",
+      "label": "Free Electives",
+      "priority": 40,
+      "capacityCredits": 7,
+      "citationId": "mst-program-comp-sci"
+    }
+  ]
+}

@@ -14,8 +14,19 @@ disclose AI tools used is grounds for disqualification." Omission is a DQ; listi
 | Tool | Model / version | What it was used for | First used |
 |---|---|---|---|
 | Claude Code | Opus 5 (1M context) | The entire build: architecture, implementation, tests, copy | 2026-08-08 |
-| Claude API | `claude-opus-5` | Runtime: transcript text → structured JSON; computed numbers → plain-English explanation. **Never the math.** | pending (Day 6) |
+| Claude API | `claude-haiku-4-5` | Runtime: transcript text → structured JSON, via structured outputs | pending (Day 6) |
+| Claude API | `claude-sonnet-5` | Runtime: computed numbers → plain-English explanation + advisor questions | pending (Day 8) |
 | Claude (chat) | Fable 5, Opus 5 | Competition research, planning, editing | 2026-08-08 |
+
+**Neither runtime model ever does arithmetic.** Haiku reads the transcript; Sonnet writes the
+explanation from numbers that are already final. Every figure comes from `src/domain/`, which is pure
+TypeScript with no network access.
+
+Why this split, on a $25 contest credit: transcript parsing is schema-constrained extraction, which is
+squarely Haiku's job at $1/$5 per MTok. The explanation is the prose a judge actually reads, so it gets
+Sonnet 5 at $3/$15 — near-Opus quality without Opus pricing. Together a full run costs roughly $0.024,
+and the demo personas ship pre-baked explanations that make **zero** API calls, so the common path
+costs nothing at all.
 
 ## Runtime dependencies
 
