@@ -136,6 +136,7 @@ export const programSchema = z.object({
   degree: z.enum(['BS', 'BA']),
   totalCredits: z.number().min(1).max(300),
   genEdFrameworkId: z.string().min(1),
+  rateId: z.string().min(1),
   blocks: z.array(requirementBlockSchema).min(1),
   prereqDepth: z.record(z.string(), z.int().min(0).max(8)),
   offeredIn: z.record(z.string(), z.array(seasonSchema)).optional(),
@@ -147,40 +148,68 @@ export const programSchema = z.object({
 
 // ───────────────────────────── school policy ─────────────────────────────
 
+export const tuitionRateSchema = z.object({
+  id: z.string().min(1),
+  label: z.string().min(1),
+  perCreditInState: centsSchema,
+  perCreditOutOfState: centsSchema,
+  plateau: z
+    .object({
+      minCredits: z.number().min(1),
+      maxCredits: z.number().min(1),
+      flatInState: centsSchema,
+      flatOutOfState: centsSchema,
+    })
+    .optional(),
+  overPlateauChargesPerCredit: z.boolean(),
+  programIds: z.array(z.string()),
+})
+
 export const tuitionModelSchema = z
   .object({
-    mode: z.enum(['perCredit', 'plateau']),
-    perCreditInState: centsSchema,
-    perCreditOutOfState: centsSchema,
-    plateau: z
-      .object({
-        minCredits: z.number().min(1),
-        maxCredits: z.number().min(1),
-        flatInState: centsSchema,
-        flatOutOfState: centsSchema,
-      })
-      .optional(),
-    programRateOverrides: z
-      .record(z.string(), z.object({ perCredit: centsSchema.optional(), flat: centsSchema.optional() }))
-      .optional(),
+    rates: z.record(z.string(), tuitionRateSchema),
+    defaultRateId: z.string().min(1),
     citationId: z.string().min(1),
   })
-  .refine((t) => t.mode !== 'plateau' || t.plateau !== undefined, {
-    message: 'mode "plateau" requires a plateau band',
-    path: ['plateau'],
+  .superRefine((t, ctx) => {
+    const fail = (message: string) => ctx.addIssue({ code: 'custom', message })
+    if (!(t.defaultRateId in t.rates)) fail(`defaultRateId "${t.defaultRateId}" is not a defined rate`)
+    for (const [key, rate] of Object.entries(t.rates)) {
+      if (rate.id !== key) fail(`rates["${key}"].id is "${rate.id}"`)
+      // Out-of-state costs more than in-state at every school modelled here;
+      // a transposed pair is the likeliest transcription error in this table.
+      if (rate.perCreditOutOfState < rate.perCreditInState) {
+        fail(`rate "${key}" has out-of-state cheaper than in-state — check for transposed columns`)
+      }
+      if (rate.plateau && rate.plateau.flatOutOfState < rate.plateau.flatInState) {
+        fail(`rate "${key}" plateau has out-of-state cheaper than in-state`)
+      }
+      // The plateau is a discount for full-time study: a full plateau load
+      // should never cost more than paying per credit for the same hours.
+      if (rate.plateau && rate.plateau.flatInState > rate.perCreditInState * rate.plateau.maxCredits) {
+        fail(`rate "${key}" plateau costs more than per-credit at ${rate.plateau.maxCredits} hours`)
+      }
+    }
   })
 
 export const feeScheduleSchema = z.object({
-  perCreditBySubject: z.record(z.string(), centsSchema),
-  crossListedRule: z.enum(['higher', 'primary']),
+  perCreditFees: z.array(
+    z.object({
+      label: z.string().min(1),
+      amountPerCredit: centsSchema,
+      cappedAtCredits: z.number().min(0).optional(),
+    }),
+  ),
   flatPerTerm: z.array(
     z.object({
       label: z.string().min(1),
       amount: centsSchema,
-      cappedAtCredits: z.number().optional(),
       proratedBelowCredits: z.number().optional(),
     }),
   ),
+  oneTime: z.array(z.object({ label: z.string().min(1), amount: centsSchema })),
+  perCreditBySubject: z.record(z.string(), centsSchema).optional(),
+  crossListedRule: z.enum(['higher', 'primary']).optional(),
   citationId: z.string().min(1),
 })
 

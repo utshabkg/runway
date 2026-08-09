@@ -80,6 +80,49 @@ describe('SAP policy is stated conservatively', () => {
   })
 })
 
+describe('tuition rate tiers — the local mechanic', () => {
+  it('bills Missouri S&T by rate tier assigned to the major', () => {
+    // Official Fall 2026 / Spring 2027 fee schedule. Full-time in-state plateau.
+    const { rates } = getSchool('mst').tuition
+    expect(rates['rate-1']!.plateau!.flatInState).toBe(745_100)
+    expect(rates['rate-2']!.plateau!.flatInState).toBe(859_900)
+    expect(rates['rate-3']!.plateau!.flatInState).toBe(974_700)
+  })
+
+  it('prices a major change at up to $2,296 per semester', () => {
+    // The headline: switching between the cheapest and dearest tier moves a
+    // full-time in-state student's tuition by this much, in either direction.
+    // Engineering to Psychology is cheaper per term while CORE 42 adds credits
+    // — two effects pulling opposite ways, which is the whole product.
+    const { rates } = getSchool('mst').tuition
+    const delta = rates['rate-3']!.plateau!.flatInState - rates['rate-1']!.plateau!.flatInState
+    expect(delta).toBe(229_600)
+  })
+
+  it('bills an undeclared student at the most expensive tier', () => {
+    // Undeclared Undergraduate sits in Rate 3 alongside every engineering
+    // major. Verifiable, in the official PDF, and news to most students.
+    const { rates } = getSchool('mst').tuition
+    const dearest = Object.values(rates).reduce((a, b) =>
+      (a.plateau?.flatInState ?? 0) >= (b.plateau?.flatInState ?? 0) ? a : b,
+    )
+    expect(dearest.programIds).toContain('mst-undeclared')
+  })
+
+  it.each(schoolIds)('%s: every rate tier is internally consistent', (id) => {
+    // The schema already rejects transposed residency columns and a plateau
+    // that costs more than paying per credit; this asserts the tiers are
+    // actually ordered, which a copy-paste slip between rows would break.
+    const { rates } = getSchool(id).tuition
+    for (const rate of Object.values(rates)) {
+      expect(rate.perCreditOutOfState).toBeGreaterThan(rate.perCreditInState)
+      if (rate.plateau) {
+        expect(rate.plateau.flatInState).toBeLessThan(rate.perCreditInState * rate.plateau.maxCredits)
+      }
+    }
+  })
+})
+
 describe('SULA never appears', () => {
   it('no data file mentions the repealed loan-subsidy 150% limit', () => {
     // The Direct Loan subsidy 150% limit was repealed by the FAFSA
@@ -148,6 +191,15 @@ describe('programs', () => {
     const genEd = getGenEdFramework(program.genEdFrameworkId)
     const problems = checkProgramIntegrity(program, genEd, getSchool(program.schoolId).citations)
     expect(problems.map((p) => p.problem)).toEqual([])
+  })
+
+  it.each(programIds)('%s names a rate tier that resolves', (id) => {
+    // A program billed at a rate that does not exist would silently fall back
+    // to the default and mis-price every projection for that major.
+    const program = getProgram(id)
+    const { rates } = getSchool(program.schoolId).tuition
+    expect(Object.keys(rates), `program "${id}" rateId "${program.rateId}"`).toContain(program.rateId)
+    expect(rates[program.rateId]!.programIds).toContain(id)
   })
 
   it.each(programIds)('%s publishes a free-elective capacity', (id) => {

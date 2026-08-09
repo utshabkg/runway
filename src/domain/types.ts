@@ -203,6 +203,12 @@ export interface Program {
   /** MechE 128 · CS 127 · IST / Business / Psych / Bio 120. */
   totalCredits: number
   genEdFrameworkId: string
+  /**
+   * Which TuitionRate this major is billed at. The single highest-leverage
+   * field in the file: it is what makes a major change move a student's
+   * per-semester tuition, up or down.
+   */
+  rateId: string
   blocks: RequirementBlock[]
 
   /**
@@ -228,47 +234,76 @@ export interface Program {
 // ───────────────────────────── school policy ─────────────────────────────
 
 /**
- * S&T's rate page is JavaScript-driven and describes cost "per credit hour or
- * plateau rate based on student type, residency status, and study area" — so
- * the differentiator may be per-subject course fees, per-major study-area
- * rates, or both. Day 1 resolves it in a browser. This type expresses BOTH
- * mechanics so that discovery cannot force a refactor.
+ * A named tuition rate that some set of programs is billed at.
+ *
+ * THE LOCAL MECHANIC, resolved from the official Fall 2026 / Spring 2027 fee
+ * schedule: Missouri S&T bills tuition by **rate tier assigned to the major**,
+ * not by course subject. Three tiers, and the spread is large — a full-time
+ * in-state semester is $7,451 at Rate 1 and $9,747 at Rate 3.
+ *
+ * So the same fifteen credits genuinely cost different amounts in different
+ * majors, and a switch can move a student between tiers in either direction.
+ * Engineering → Psychology is $2,296 cheaper per semester while simultaneously
+ * adding CORE 42 credits: the two effects pull opposite ways, which is exactly
+ * the kind of answer a student cannot work out on their own.
  */
-export interface TuitionModel {
-  mode: 'perCredit' | 'plateau'
+export interface TuitionRate {
+  id: string
+  /** Verbatim from the fee schedule: "Rate 1", "Rate 3". */
+  label: string
   perCreditInState: Cents
   perCreditOutOfState: Cents
-  /** S&T charges a flat rate across 12–18 hours. */
+  /** S&T bills a flat plateau across 12–18 hours. */
   plateau?: {
     minCredits: number
     maxCredits: number
     flatInState: Cents
     flatOutOfState: Cents
   }
-  /** Per-major "study area" rates, if that turns out to be the mechanic. */
-  programRateOverrides?: Record<string, { perCredit?: Cents; flat?: Cents }>
+  /**
+   * S&T: "Over 18 hours will be assessed at plateau rate plus per credit hour
+   * rate for additional hours over 18."
+   */
+  overPlateauChargesPerCredit: boolean
+  /** Program ids billed at this rate, for display and for a coverage test. */
+  programIds: string[]
+}
+
+export interface TuitionModel {
+  rates: Record<string, TuitionRate>
+  /** Used when a program names no rate — should never be hit; tests enforce it. */
+  defaultRateId: string
   citationId: string
+}
+
+/** A fee charged per credit hour that may stop accruing past a threshold.
+ *  S&T's Activity & Facility fee is $42/credit hour, capped at 12 hours. */
+export interface PerCreditFee {
+  label: string
+  amountPerCredit: Cents
+  cappedAtCredits?: number
 }
 
 export interface FlatFee {
   label: string
   amount: Cents
-  /** Activity/facility fees stop accruing past a credit threshold. */
-  cappedAtCredits?: number
   /** Prorated below full time. */
   proratedBelowCredits?: number
 }
 
-/**
- * The non-obvious local mechanic: at S&T the same fifteen credits cost
- * different amounts in different majors, because supplemental course fees are
- * charged by course subject.
- */
 export interface FeeSchedule {
-  perCreditBySubject: Record<Subject, Cents>
-  /** S&T: co-listed courses are charged the higher of the applicable fees. */
-  crossListedRule: 'higher' | 'primary'
+  perCreditFees: PerCreditFee[]
   flatPerTerm: FlatFee[]
+  /** Charged once, at graduation. */
+  oneTime: FlatFee[]
+  /**
+   * Supplemental fees charged by course subject. Not how S&T bills — kept
+   * because other schools do, and the engine costs bucket credits against it
+   * when present.
+   */
+  perCreditBySubject?: Record<Subject, Cents>
+  /** Where per-subject fees apply, which one a cross-listed course is charged. */
+  crossListedRule?: 'higher' | 'primary'
   citationId: string
 }
 

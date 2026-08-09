@@ -5,43 +5,46 @@
   "asOf": "2026-08-08",
 
   "tuition": {
-    "mode": "plateau",
-    "perCreditInState": 49947,
-    "perCreditOutOfState": 110827,
-    "plateau": {
-      "minCredits": 12,
-      "maxCredits": 18,
-      "flatInState": 749200,
-      "flatOutOfState": 1662400
-    },
-    "citationId": "mst-tuition-derived"
+    "defaultRateId": "rate-3",
+    "citationId": "mst-fee-schedule-2026-27",
+    "rates": {
+      "rate-1": {
+        "id": "rate-1",
+        "label": "Rate 1",
+        "perCreditInState": 62100,
+        "perCreditOutOfState": 145200,
+        "plateau": { "minCredits": 12, "maxCredits": 18, "flatInState": 745100, "flatOutOfState": 1742200 },
+        "overPlateauChargesPerCredit": true,
+        "programIds": ["mst-psychology", "mst-multidisciplinary-studies"]
+      },
+      "rate-2": {
+        "id": "rate-2",
+        "label": "Rate 2",
+        "perCreditInState": 71700,
+        "perCreditOutOfState": 154800,
+        "plateau": { "minCredits": 12, "maxCredits": 18, "flatInState": 859900, "flatOutOfState": 1857000 },
+        "overPlateauChargesPerCredit": true,
+        "programIds": ["mst-biological-sciences", "mst-business-mgmt-systems", "mst-information-science-technology"]
+      },
+      "rate-3": {
+        "id": "rate-3",
+        "label": "Rate 3",
+        "perCreditInState": 81200,
+        "perCreditOutOfState": 164300,
+        "plateau": { "minCredits": 12, "maxCredits": 18, "flatInState": 974700, "flatOutOfState": 1971800 },
+        "overPlateauChargesPerCredit": true,
+        "programIds": ["mst-mechanical-engineering", "mst-computer-science", "mst-undeclared"]
+      }
+    }
   },
 
   "fees": {
-    "perCreditBySubject": {
-      "AERO ENG": 7420,
-      "CHEM ENG": 7420,
-      "CIV ENG": 7420,
-      "COMP ENG": 7420,
-      "ELEC ENG": 7420,
-      "ENG MGT": 7420,
-      "MECH ENG": 7420,
-      "NUC ENG": 7420,
-      "BIO SCI": 7220,
-      "CHEM": 7220,
-      "COMP SCI": 7090,
-      "GEOLOGY": 7090,
-      "PHYSICS": 3540,
-      "BUS": 3610,
-      "IS&T": 3610,
-      "MIS": 3610
-    },
-    "crossListedRule": "higher",
-    "flatPerTerm": [
-      { "label": "Activity and facility fee (full-time cap)", "amount": 34550 },
-      { "label": "Health service fee", "amount": 9200 }
+    "perCreditFees": [
+      { "label": "Activity and facility fee", "amountPerCredit": 4200, "cappedAtCredits": 12 }
     ],
-    "citationId": "mst-fees-structure"
+    "flatPerTerm": [{ "label": "Health service fee", "amount": 22359 }],
+    "oneTime": [{ "label": "Graduation application fee", "amount": 7500 }],
+    "citationId": "mst-fee-schedule-2026-27"
   },
 
   "sap": {
@@ -98,21 +101,12 @@
   "gradRates": { "fourYear": 28.97, "sixYear": 64.37, "citationId": "scorecard-178411" },
 
   "citations": {
-    "mst-tuition-derived": {
-      "id": "mst-tuition-derived",
-      "label": "Missouri S&T tuition and required fees (IPEDS 2024-25)",
-      "url": "https://nces.ed.gov/collegenavigator/?id=178411",
+    "mst-fee-schedule-2026-27": {
+      "id": "mst-fee-schedule-2026-27",
+      "label": "Missouri S&T Undergraduate Tuition Rates, Fall 2026 & Spring 2027",
+      "url": "https://sfs.mst.edu/media/studentsupport/sfs/tuitionrates/fall/Fall%2026%20&%20Spring%2027%20Undergrad%20Fee%20Schedule.pdf",
       "asOf": "2026-08-08",
-      "unverified": true,
-      "note": "PLACEHOLDER. These per-credit and plateau figures are DERIVED by dividing the verified IPEDS 2024-25 annual tuition-and-required-fees total ($14,984 in-state, $33,248 out-of-state) across 30 credit hours; they are NOT the rates S&T publishes. Replace with the real numbers from https://sfs.mst.edu/tuitioncosts/tuitionrates/ — that page is JavaScript-driven and the linked fee-schedule PDFs 404, so it must be opened in a browser. Run CS, MechE, Psychology and Business at 12, 15 and 18 credits, in-state and out, and screenshot each result: the page describes rates as varying by 'study area', so this may need tuition.programRateOverrides instead of a single rate."
-    },
-    "mst-fees-structure": {
-      "id": "mst-fees-structure",
-      "label": "Missouri S&T supplemental course fees by subject",
-      "url": "https://enrollment.mst.edu/media/enrollmentmanagement/enrollment/documents/Cost_of_Education.pdf",
-      "asOf": "2026-08-08",
-      "unverified": true,
-      "note": "STRUCTURE VERIFIED, AMOUNTS STALE. The mechanic is real and is the reason the same fifteen credits cost different amounts in different majors: S&T charges supplemental fees by course subject, and co-listed courses are charged the higher of the applicable fees. The amounts here are from the 2012-13 edition of this PDF and must not be demoed. Replace from the current fee schedule."
+      "note": "The official rate table for exactly the terms this tool projects. S&T bills tuition by RATE TIER ASSIGNED TO THE MAJOR, not by course subject: Rate 1 (Economics, Education, English & Tech Communication, History, Philosophy, Psychology, Multidisciplinary Studies, Non-Degree), Rate 2 (Applied Mathematics, Biochemistry, Biological Sciences, Business & Management Systems, Chemistry, Data Science, Environmental Sciences, Geology & Geophysics, Information Science & Technology, Physics), Rate 3 (all engineering disciplines, Computer Science, and Undeclared Undergraduate). A full-time in-state semester is $7,451 at Rate 1 and $9,747 at Rate 3, so a major change moves a student's tuition by up to $2,296 per semester in either direction. Note that Undeclared Undergraduate is billed at Rate 3, the most expensive tier. Also: 'Over 18 hours will be assessed at plateau rate plus per credit hour rate for additional hours over 18.' The activity and facility fee is $42.00 per credit hour capped at 12 hours; health service is $223.59 per semester; graduation application is $75.00. Not modelled: the per-semester academic testing fee charged to sophomores, juniors and seniors (the schedule states it exists but not the amount) and international-student fees."
     },
     "mst-sap": {
       "id": "mst-sap",
